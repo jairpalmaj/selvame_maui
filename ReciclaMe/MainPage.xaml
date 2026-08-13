@@ -15,17 +15,52 @@
 
             <Label
                 Text="Hello, World!"
-                Style="{StaticResource Headline}"
+                Style="{StaticResource HeadlineLgLabelStyle}"
                 SemanticProperties.HeadingLevel="Level1" />
 
             <Label
                 Text="Welcome to &#10;.NET Multi-platform App UI"
-                Style="{StaticResource SubHeadline}"
+                Style="{StaticResource HeadlineMdLabelStyle}"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+            
+            
+            
+            <Label
+                Text="This is a testing body Large"
+                Style="{StaticResource BodyLgLabelStyle}"/>
+            
+            <Label
+                Text="This is a testing body Medium"
+                Style="{StaticResource BodyMdLabelStyle}"/>
+            
+            <Label
+                Text="This is a testing body small"
+                Style="{StaticResource BodySmLabelStyle}"/>
 
             <Button
                 x:Name="CounterBtn"
+                Text="Click me" 
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Fill" />
+            
+            <Button
+                Style="{StaticResource InvertedButtonStyle}"
+                Text="Click me" 
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Fill" />
+            
+            <Button
+                Style="{StaticResource OutlinedButtonStyle}"
+                Text="Click me" 
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Fill" />
+            
+            <Button
+                Style="{StaticResource SecondaryButtonStyle}"
                 Text="Click me" 
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
