@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+             xmlns:vm="clr-namespace:ReciclaMe.Features.StartAdventure"
+             x:DataType="vm:ChooseCharacterPageViewModel"
+             Shell.NavBarIsVisible="False"
+             xmlns:controls="clr-namespace:ReciclaMe.Controls"
+             x:Class="ReciclaMe.Features.StartAdventure.ChooseCharacterPage">
+    <Grid 
+        Margin="20"
+        ColumnSpacing="12"
+        RowSpacing="20"
+        VerticalOptions="Center"
+        RowDefinitions="Auto, Auto, Auto, *"
+        ColumnDefinitions="*, *">
+        <VerticalStackLayout
+            Spacing="8"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="0">
+            <Label 
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource HeadlineLgLabelStyle}"
+                TextColor="{StaticResource PrimaryContainer}"
+                Text="¡Salva la Selva!" />
+            <Label 
+                LineHeight="0"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource HeadlineMdLabelStyle}"
+                TextColor="{StaticResource Tertiary}"
+                Text="¡Elige a tu compañero!" />
+            <Label
+                LineHeight="0"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource BodyMdLabelStyle}"
+                TextColor="{StaticResource InverseSurface}"
+                Text="¿Quién te acompañará en tu aventura?"/>
+        </VerticalStackLayout>
+        <controls:CharacterSelection 
+            CharacterImageSource="character1"
+            CharacterSkill="Creatividad"
+            CharacterName="Tucky"
+            CharacterGlyph="&#xe40a;"
+            CharacterGlyphColor="{StaticResource PaperBlue}"
+            SelectCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ChooseCharacterPageViewModel}}, Path=SelectCharacterCommand}"
+            SelectCommandParameter="1"
+            IsSelected="{Binding Source={RelativeSource AncestorType={x:Type vm:ChooseCharacterPageViewModel}}, Path=IsCharacter1Selected}"
+            Grid.Column="0"
+            Grid.Row="1"/>
+        <controls:CharacterSelection 
+            CharacterImageSource="character2"
+            CharacterSkill="Agilidad"
+            CharacterName="Balam"
+            CharacterGlyph="&#xebc4;"
+            CharacterGlyphColor="{StaticResource SurfaceTint}"
+            SelectCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ChooseCharacterPageViewModel}}, Path=SelectCharacterCommand}"
+            SelectCommandParameter="2"
+            IsSelected="{Binding Source={RelativeSource AncestorType={x:Type vm:ChooseCharacterPageViewModel}}, Path=IsCharacter2Selected}"
+            Grid.Column="1"
+            Grid.Row="1"/>
+        <controls:CharacterSelection 
+            CharacterImageSource="character3"
+            CharacterSkill="Inteligencia"
+            CharacterName="Drílan"
+            CharacterGlyph="&#xefac;"
+            SelectCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ChooseCharacterPageViewModel}}, Path=SelectCharacterCommand}"
+            SelectCommandParameter="3"
+            IsSelected="{Binding Source={RelativeSource AncestorType={x:Type vm:ChooseCharacterPageViewModel}}, Path=IsCharacter3Selected}"
+            CharacterGlyphColor="{StaticResource PoisonDartRed}"
+            Grid.Column="0"
+            Grid.Row="2"/>
+        <controls:CharacterSelection 
+            CharacterImageSource="character4"
+            CharacterSkill="Fuerza"
+            CharacterGlyph="&#xf6e6;"
+            CharacterName="Flami"
+            SelectCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ChooseCharacterPageViewModel}}, Path=SelectCharacterCommand}"
+            SelectCommandParameter="4"
+            IsSelected="{Binding Source={RelativeSource AncestorType={x:Type vm:ChooseCharacterPageViewModel}}, Path=IsCharacter4Selected}"
+            CharacterGlyphColor="{StaticResource GlassPurple}"
+            Grid.Column="1"
+            Grid.Row="2"/>
+        <Button 
+            Margin="0, 20"
+            IsEnabled="{Binding IsEnable}"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="3"
+            Command="{Binding StartCommand}"
+            Text="Seleccionar">
+            <Button.ImageSource>
+                <FontImageSource
+                    Glyph="&#xef75;"
+                    Color="{StaticResource OnPrimary}"
+                    FontFamily="GIcons"/>
+            </Button.ImageSource>
+            <Button.Triggers>
+                <DataTrigger TargetType="Button"
+                             Binding="{Binding IsEnable}"
+                             Value="True">
+                    <Setter Property="Opacity" Value="1" />
+                </DataTrigger>
+                <DataTrigger TargetType="Button"
+                             Binding="{Binding IsEnable}"
+                             Value="False">
+                    <Setter Property="Opacity" Value="0.56" />
+                </DataTrigger>
+            </Button.Triggers>
+        </Button>
+    </Grid>
+</pages:BasePage>

@@ -73,4 +73,6 @@
     <Color x:Key="GlassPurple">#8338EC</Color>
     <Color x:Key="OrganicBrown">#6F4E37</Color>
     <Color x:Key="PureWhite">#FFFFFF</Color>
+    <Color x:Key="Gray">Gray</Color>
+    <Color x:Key="Orange">#f9943b</Color>
 </ResourceDictionary>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+             Shell.NavBarIsVisible="False"
+             xmlns:vm="clr-namespace:ReciclaMe.Features.ExplorerLenses"
+             x:DataType="vm:LearningLensesPageViewModel"
+             x:Class="ReciclaMe.Features.ExplorerLenses.LearningLensesPage">
+    <VerticalStackLayout
+        Spacing="20"
+        VerticalOptions="Center"
+        Margin="20">
+        <Label 
+            HorizontalTextAlignment="Center"
+            TextColor="{StaticResource PoisonDartRed}"
+            Style="{StaticResource HeadlineSmLabelStyle}"
+            Text="Simulador de camara para aprender"/>
+        <Button 
+            Command="{Binding ValidateCommand}"
+            Text="Fotografiar y aprender" />
+        
+        <Button 
+            Style="{StaticResource SecondaryButtonStyle}"
+            Command="{Binding BackCommand}"
+            Text="Back" />
+    </VerticalStackLayout>
+</pages:BasePage>

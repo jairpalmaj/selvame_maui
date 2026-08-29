@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+                xmlns:vm="clr-namespace:ReciclaMe.Features.Alerts"
+                x:DataType="vm:FailedExtraPointsPageViewModel"
+                Shell.NavBarIsVisible="False"
+                x:Class="ReciclaMe.Features.Alerts.FailedExtraPointsPage">
+    <AbsoluteLayout
+        SafeAreaEdges="None">
+        <Image
+            Source="bg"
+            Aspect="AspectFill"
+            Opacity="0.56"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1,1,1,1" />
+        <Grid
+            VerticalOptions="Center"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1,1,1,1"
+            ColumnDefinitions="*"
+            RowDefinitions="Auto, Auto">
+            <Border
+                Grid.Column="0"
+                Grid.Row="0"
+                StrokeShape="RoundRectangle 20"
+                Margin="30"
+                Stroke="{StaticResource OnSecondaryFixedVariant}"
+                StrokeThickness="6"
+                BackgroundColor="{StaticResource TertiaryContainer}">
+                <Grid
+                    RowSpacing="12"
+                    ColumnDefinitions="*"
+                    RowDefinitions="120, Auto, *, Auto, *, Auto, Auto">
+                    <Image
+                        Margin="0, 10, 0, 0"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Source="{Binding CharacterImageSource}" />
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        LineHeight="0"
+                        HorizontalTextAlignment="Center"
+                        TextColor="{StaticResource OnSecondary}"
+                        Style="{StaticResource HeadlineMdLabelStyle}"
+                        Text="¡Ay! Casi lo logras" />
+                    <Border
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        HeightRequest="50"
+                        WidthRequest="160"
+                        Stroke="{StaticResource PaperBlue}"
+                        StrokeThickness="4"
+                        StrokeShape="RoundRectangle 10"
+                        BackgroundColor="{StaticResource PaperBlue}">
+                        <Label
+                            LineHeight="0"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="{StaticResource OnError}"
+                            Style="{StaticResource HeadlineSmLabelStyle}"
+                            Text="{Binding CategoryName}" />
+                        <Border.Shadow>
+                            <Shadow Brush="{StaticResource OnTertiaryFixedVariant}"
+                                    Offset="0,4"
+                                    Radius="1"
+                                    Opacity="1" />
+                        </Border.Shadow>
+                    </Border>
+                    <Border
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        HeightRequest="50"
+                        WidthRequest="160"
+                        Stroke="{StaticResource Error}"
+                        StrokeThickness="4"
+                        StrokeShape="RoundRectangle 10"
+                        BackgroundColor="{StaticResource Error}">
+                        <Label
+                            LineHeight="0"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="{StaticResource OnError}"
+                            Style="{StaticResource HeadlineSmLabelStyle}"
+                            Text="{Binding NotCategoryName}" />
+                        <Border.Shadow>
+                            <Shadow Brush="{StaticResource OnTertiaryFixedVariant}"
+                                    Offset="0,4"
+                                    Radius="1"
+                                    Opacity="1" />
+                        </Border.Shadow>
+                    </Border>
+                    <Border
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        HeightRequest="46"
+                        WidthRequest="260"
+                        Stroke="{StaticResource Tertiary}"
+                        StrokeThickness="4"
+                        StrokeShape="RoundRectangle 23"
+                        BackgroundColor="{StaticResource OnPrimary}">
+                        <HorizontalStackLayout
+                            Spacing="10"
+                            HorizontalOptions="Center">
+                            <Label
+                                LineHeight="0"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                FontFamily="GIcons"
+                                FontSize="28"
+                                TextColor="{StaticResource PlasticYellow}"
+                                Text="&#xf31d;" />
+                            <Label
+                                LineHeight="0"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                TextColor="{StaticResource Tertiary}"
+                                Style="{StaticResource HeadlineSmLabelStyle}"
+                                Text="{Binding PointsLabel}" />
+                        </HorizontalStackLayout>
+                        <Border.Shadow>
+                            <Shadow Brush="{StaticResource OnTertiaryFixedVariant}"
+                                    Offset="0,4"
+                                    Radius="1"
+                                    Opacity="1" />
+                        </Border.Shadow>
+                    </Border>
+                    <Border
+                        Grid.Column="0"
+                        Grid.Row="5"
+                        StrokeShape="RoundRectangle 10"
+                        Margin="10"
+                        Padding="10"
+                        StrokeThickness="2"
+                        Stroke="{StaticResource Error}"
+                        BackgroundColor="{StaticResource ErrorContainer}">
+                        <Label
+                            LineHeight="0"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Style="{StaticResource BodyMdLabelStyle}"
+                            TextColor="{StaticResource OnErrorContainer}"
+                            Text="{Binding PointsInformation}" />
+                    </Border>
+                    <Border
+                        Margin="0, 0, 0, 10"
+                        Grid.Column="0"
+                        Grid.Row="6"
+                        HeightRequest="52"
+                        WidthRequest="200"
+                        Stroke="{StaticResource Primary}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 20"
+                        BackgroundColor="{StaticResource PrimaryContainer}">
+                        <HorizontalStackLayout
+                            HorizontalOptions="Center"
+                            Spacing="12">
+                            <Label
+                                LineHeight="0"
+                                VerticalTextAlignment="Center"
+                                FontFamily="GIcons"
+                                FontSize="26"
+                                TextColor="{StaticResource OnPrimary}"
+                                Text="&#xeaaa;" />
+                            <Label
+                                VerticalTextAlignment="Center"
+                                LineHeight="0"
+                                TextColor="{StaticResource OnPrimary}"
+                                Style="{StaticResource HeadlineSmLabelStyle}"
+                                Text="CONTINUAR" />
+                        </HorizontalStackLayout>
+                        <Border.Shadow>
+                            <Shadow Brush="{StaticResource Primary}"
+                                    Offset="0,6"
+                                    Radius="1"
+                                    Opacity="1" />
+                        </Border.Shadow>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding ContinueCommand}" />
+                        </Border.GestureRecognizers>
+                    </Border>
+                </Grid>
+                <Border.Shadow>
+                    <Shadow Brush="{StaticResource OnSecondaryFixedVariant}"
+                            Offset="0,8"
+                            Radius="1"
+                            Opacity="1" />
+                </Border.Shadow>
+            </Border>
+            <Button 
+                Grid.Column="0"
+                Grid.Row="1"
+                Style="{StaticResource SecondaryButtonStyle}"
+                Command="{Binding GoToBaseCommand}"
+                Text="Volver a la base" />
+        </Grid>
+    </AbsoluteLayout>
+</pages:BasePage>

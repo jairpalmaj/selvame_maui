@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ReciclaMe.Features.StartAdventure"
+             xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+             x:DataType="vm:StartPageViewModel"
+             Shell.NavBarIsVisible="False"
+             xmlns:behaviors="clr-namespace:ReciclaMe.Animations"
+             x:Class="ReciclaMe.Features.StartAdventure.StartPage">
+    <Grid
+        Padding="10"
+        RowDefinitions="*, Auto, *, Auto,*"
+        ColumnDefinitions="*">
+        <Label 
+            Grid.Column="0"
+            Grid.Row="1"
+            HorizontalTextAlignment="Center"
+            Style="{StaticResource HeadlineLgLabelStyle}"
+            TextColor="{StaticResource PrimaryContainer}"
+            Text="¡Jungla Verde!">
+            <Label.Shadow>
+                <Shadow Brush="{StaticResource PrimaryContainer}"
+                        Offset="2,4"
+                        Radius="10"
+                        Opacity="0.36" />
+            </Label.Shadow>
+        </Label>
+        <Border 
+            Grid.Column="0"
+            Grid.Row="2"
+            WidthRequest="160"
+            HeightRequest="160"
+            StrokeShape="RoundRectangle 80">
+            <Image 
+                Source="monkey"/>
+            <Border.Behaviors>
+                <behaviors:HeartBeatAnimationBehavior />
+            </Border.Behaviors>
+        </Border>
+        <Entry 
+            Grid.Column="0"
+            Grid.Row="3"
+            HeightRequest="60"
+            FontFamily="FredokaOne"
+            FontSize="18"
+            Placeholder="Tu Nombre es..." />
+        
+        <Button 
+            Command="{Binding StartCommand}"
+            VerticalOptions="End"
+            Grid.Column="0"
+            Grid.Row="4"
+            Text="Comenzar aventura"
+            FontSize="22"
+            Margin="20"
+            Style="{StaticResource PrimaryButtonStyle}">
+            <Button.ImageSource>
+                <FontImageSource
+                    Glyph="&#xf527;"
+                    Color="{StaticResource OnPrimary}"
+                    FontFamily="GIcons"/>
+            </Button.ImageSource>
+        </Button>
+    </Grid>
+    
+</pages:BasePage>

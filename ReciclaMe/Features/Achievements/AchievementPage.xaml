@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:vm="clr-namespace:ReciclaMe.Features.Achievements"
+                xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+                x:DataType="vm:AchievementPageViewModel"
+                Shell.NavBarIsVisible="False"
+                SafeAreaEdges="None"
+                xmlns:controls="clr-namespace:ReciclaMe.Controls"
+                x:Class="ReciclaMe.Features.Achievements.AchievementPage">
+    <Grid
+        SafeAreaEdges="None"
+        RowDefinitions="Auto, Auto, Auto, *"
+        ColumnDefinitions="*, *">
+        <VerticalStackLayout
+            Grid.Column="0"
+            Grid.Row="0">
+            <Image
+                HeightRequest="100"
+                Source="{Binding CharacterImageSource}"/>
+            <Label 
+                LineHeight="0"
+                TextColor="{StaticResource Tertiary}"
+                Style="{StaticResource HeadlineSmLabelStyle}"
+                HorizontalTextAlignment="Center"
+                Text="{Binding CharacterName}" />
+        </VerticalStackLayout>
+        <Border
+            StrokeShape="RoundRectangle 20"
+            Grid.Column="1"
+            Grid.Row="0"
+            StrokeThickness="2"
+            Stroke="Black"
+            BackgroundColor="{StaticResource SecondaryContainer}"
+            WidthRequest="160"
+            HeightRequest="44">
+            <Border.Shadow>
+                <Shadow Brush="Black"
+                        Offset="0,6"
+                        Radius="1"
+                        Opacity="1" />
+            </Border.Shadow>
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Spacing="8">
+                <Label
+                    LineHeight="0"
+                    VerticalTextAlignment="Center"
+                    TextColor="{StaticResource OnBackground}"
+                    Style="{StaticResource BodyMdLabelStyle}"
+                    Text="{Binding Points}" />
+                <Label
+                    LineHeight="0"
+                    VerticalTextAlignment="Center"
+                    FontFamily="GIcons"
+                    FontSize="26"
+                    TextColor="{StaticResource Primary}"
+                    Text="&#xea35;" />
+            </HorizontalStackLayout>
+        </Border>
+        <Border
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="1"
+            Margin="20"
+            StrokeShape="RoundRectangle 20"
+            StrokeThickness="4"
+            Stroke="{StaticResource OnTertiaryFixedVariant}"
+            BackgroundColor="{StaticResource TertiaryContainer}">
+            <VerticalStackLayout
+                Spacing="12"
+                Padding="20, 10">
+                <Label
+                    LineHeight="0"
+                    Style="{StaticResource BodyMdLabelStyle}"
+                    TextColor="{StaticResource OnTertiaryContainer}"
+                    Text="Progreso de Reciclaje" />
+                <Label
+                    LineHeight="0"
+                    HorizontalTextAlignment="End"
+                    Style="{StaticResource BodyMdLabelStyle}"
+                    TextColor="{StaticResource OnTertiaryContainer}"
+                    Text="{Binding ProgressLabel}" />
+                <ProgressBar
+                    ProgressColor="{StaticResource Primary}"
+                    Progress="{Binding Progress}">
+                    <ProgressBar.BackgroundColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="iOS" Value="{StaticResource OnTertiaryContainer}" />
+                        </OnPlatform>
+                    </ProgressBar.BackgroundColor>
+                </ProgressBar>
+                <Label
+                    LineHeight="0"
+                    HorizontalTextAlignment="End"
+                    Style="{StaticResource BodySmLabelStyle}"
+                    TextColor="{StaticResource OnTertiaryContainer}"
+                    Text="¡Sigue así explorador!" />
+            </VerticalStackLayout>
+            <Border.Shadow>
+                <Shadow Brush="{StaticResource OnTertiaryFixedVariant}"
+                        Offset="0,6"
+                        Radius="1"
+                        Opacity="1" />
+            </Border.Shadow>
+        </Border>
+        <Grid
+            RowSpacing="12"
+            RowDefinitions="*, *"
+            ColumnDefinitions="*, *"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="2">
+            <controls:BadgeView
+                Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge1}"
+                Title="Guardián del Agua"
+                Grid.Column="0"
+                Grid.Row="0" />
+            <controls:BadgeView
+                Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge2}"
+                Title="Héroe del Aire"
+                Grid.Column="1"
+                Grid.Row="0" />
+            <controls:BadgeView
+                Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge3}"
+                Title="Amigo del Bosque"
+                Grid.Column="0"
+                Grid.Row="1" />
+            <controls:BadgeView
+                Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge4}"
+                Title="Rey de la Jungla"
+                Grid.Column="1"
+                Grid.Row="1" />
+        </Grid>
+        <Border
+            StrokeShape="RoundRectangle 20, 20, 0, 0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="3"
+            Padding="16"
+            BackgroundColor="{StaticResource PrimaryContainer}"
+            VerticalOptions="End">
+            <Grid
+                ColumnSpacing="40"
+                RowDefinitions="*"
+                ColumnDefinitions="*, *, *">
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    LineHeight="0"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontFamily="GIcons"
+                    FontSize="30"
+                    Opacity="0.48"
+                    TextColor="{StaticResource Background}"
+                    Text="&#xe88a;">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding GoToHomeCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    LineHeight="0"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontFamily="GIcons"
+                    FontSize="30"
+                    TextColor="{StaticResource Background}"
+                    Text="&#xefb6;">
+                </Label>
+                <Label
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    LineHeight="0"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontFamily="GIcons"
+                    FontSize="30"
+                    Opacity="0.48"
+                    TextColor="{StaticResource Background}"
+                    Text="&#xe56a;">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding GoToProfileCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </Border>
+    </Grid>
+</pages:BasePage>

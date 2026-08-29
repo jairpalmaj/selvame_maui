@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Border
+    StrokeShape="RoundRectangle 20"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ReciclaMe.Controls.CategoryClass"
+    x:Name="This"
+    xmlns:data = "clr-namespace:ReciclaMe.Controls"
+    BindingContext="{Binding Source={x:Reference This} }"
+    x:DataType="data:CategoryClass"
+    StrokeThickness="2"
+    Stroke="{StaticResource Gray}"
+    BackgroundColor="{StaticResource Gray}">
+    <VerticalStackLayout
+        VerticalOptions="Center"
+        HorizontalOptions="Center">
+        <Label
+            LineHeight="0"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+            FontFamily="GIcons"
+            FontSize="30"
+            TextColor="{StaticResource Background}"
+            Text="{Binding IconGlyph}" />
+        <Label
+            LineHeight="0"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"
+            TextColor="{StaticResource Background}"
+            Style="{StaticResource BodyMdLabelStyle}"
+            Text="{Binding Title}" />
+    </VerticalStackLayout>
+    <Border.Shadow>
+        <Shadow Brush="{StaticResource OnSurfaceVariant}"
+                Offset="4,8"
+                Radius="1"
+                Opacity="1" />
+    </Border.Shadow>
+    <Border.GestureRecognizers>
+        <TapGestureRecognizer
+            CommandParameter="{Binding TapCommandParameter}"
+            Command="{Binding TapCommand}" />
+    </Border.GestureRecognizers>
+</Border>

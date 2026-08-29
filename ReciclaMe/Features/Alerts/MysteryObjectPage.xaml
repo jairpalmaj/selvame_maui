@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+                xmlns:vm="clr-namespace:ReciclaMe.Features.Alerts"
+                x:DataType="vm:MysteryObjectPageViewModel"
+                Shell.NavBarIsVisible="False"
+                x:Class="ReciclaMe.Features.Alerts.MysteryObjectPage">
+    <AbsoluteLayout
+        SafeAreaEdges="None">
+        <Image
+            Opacity="0.56"
+            Aspect="AspectFill"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1,1,1,1"
+            Source="bg2" />
+        <Grid
+            VerticalOptions="Center"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1,1,1,1"
+            ColumnDefinitions="*"
+            RowDefinitions="*, Auto">
+            <Border
+                Grid.Column="0"
+                Grid.Row="0"
+                StrokeShape="RoundRectangle 20"
+                Margin="30"
+                Stroke="{StaticResource OnSecondaryFixedVariant}"
+                StrokeThickness="6"
+                BackgroundColor="{StaticResource TertiaryContainer}">
+                <Grid
+                    ColumnDefinitions="*"
+                    RowDefinitions="Auto, Auto, Auto, *, Auto">
+                    <Border
+                        Margin="0, 8"
+                        HeightRequest="60"
+                        WidthRequest="60"
+                        StrokeShape="RoundRectangle 30"
+                        StrokeThickness="2"
+                        Stroke="{StaticResource ErrorContainer}"
+                        BackgroundColor="{StaticResource SurfaceContainer}">
+                        <Label
+                            LineHeight="0"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontFamily="GIcons"
+                            FontSize="30"
+                            TextColor="{StaticResource Error}"
+                            Text="&#xea76;" />
+                        <Border.Shadow>
+                            <Shadow Brush="{StaticResource ErrorContainer}"
+                                    Offset="0,0"
+                                    Radius="10"
+                                    Opacity="1" />
+                        </Border.Shadow>
+                    </Border>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        HorizontalTextAlignment="Center"
+                        TextColor="{StaticResource OnSecondary}"
+                        Style="{StaticResource HeadlineMdLabelStyle}"
+                        Text="¡Objeto Misterioso!" />
+                    <Image
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        HeightRequest="140"
+                        Source="question_monkey" />
+                    <Border
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        StrokeShape="RoundRectangle 10"
+                        Margin="10"
+                        Padding="10"
+                        StrokeThickness="2"
+                        Stroke="{StaticResource TertiaryFixedDim}"
+                        BackgroundColor="{StaticResource SurfaceContainer}">
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Style="{StaticResource BodyMdLabelStyle}"
+                            TextColor="{StaticResource OnSurface}"
+                            Text="¡Ups! No reconozco esto. ¿Podrías acercarte un poco más o buscar un lugar con más luz?" />
+                    </Border>
+                    <Border
+                        VerticalOptions="End"
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        Margin="20"
+                        HeightRequest="60"
+                        Stroke="{StaticResource Primary}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 20"
+                        BackgroundColor="{StaticResource PrimaryContainer}">
+                        <HorizontalStackLayout
+                            HorizontalOptions="Center"
+                            Spacing="12">
+                            <Label
+                                LineHeight="0"
+                                VerticalTextAlignment="Center"
+                                FontFamily="GIcons"
+                                FontSize="26"
+                                TextColor="{StaticResource OnPrimary}"
+                                Text="&#xf053;" />
+                            <Label
+                                VerticalTextAlignment="Center"
+                                LineHeight="0"
+                                TextColor="{StaticResource OnPrimary}"
+                                Style="{StaticResource HeadlineSmLabelStyle}"
+                                Text="INTENTAR DE NUEVO" />
+                        </HorizontalStackLayout>
+                        <Border.Shadow>
+                            <Shadow Brush="{StaticResource Primary}"
+                                    Offset="0,6"
+                                    Radius="1"
+                                    Opacity="1" />
+                        </Border.Shadow>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding RetryCommand}" />
+                        </Border.GestureRecognizers>
+                    </Border>
+                </Grid>
+                <Border.Shadow>
+                    <Shadow Brush="{StaticResource OnSecondaryFixedVariant}"
+                            Offset="0,8"
+                            Radius="1"
+                            Opacity="1" />
+                </Border.Shadow>
+            </Border>
+            <Button
+                Grid.Column="0"
+                Grid.Row="1"
+                Style="{StaticResource SecondaryButtonStyle}"
+                Command="{Binding GoToBaseCommand}"
+                Text="Volver a la base"/>
+        </Grid>
+    </AbsoluteLayout>
+</pages:BasePage>
