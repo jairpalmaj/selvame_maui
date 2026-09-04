@@ -56,7 +56,7 @@
                             StrokeThickness="4">
                             <Image
                                 Aspect="AspectFit"
-                                Source="{Binding ImageSource}" />
+                                Source="{Binding ImageSource, Converter={StaticResource ImagePathToSource}}" />
                         </Border>
                         <Border
                             Grid.Column="0"

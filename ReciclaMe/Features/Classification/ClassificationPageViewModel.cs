@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using ReciclaMe.Domain;
 using ReciclaMe.Features.Common;
 using ReciclaMe.Features.Alerts;
+using ReciclaMe.Features.ExplorerLenses;
 
 namespace ReciclaMe.Features.Classification;
 
@@ -26,7 +27,12 @@ public partial class ClassificationPageViewModel : BaseViewModel
     {
         _profileRepository = profileRepository;
     }
-    
+
+    protected override async Task Back()
+    {
+        await NavigationService.NavigateAsync($"///{MainMenuRootPath}/{nameof(LensesPageViewModel)}");
+    }
+
     public override async Task OnAppearing()
     {
         Profile = await _profileRepository.GetAsync();

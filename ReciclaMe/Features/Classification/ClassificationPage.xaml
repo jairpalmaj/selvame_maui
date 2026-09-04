@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
-             xmlns:behaviors="clr-namespace:ReciclaMe.Animations"
-             Shell.NavBarIsVisible="False"
-             xmlns:vm="clr-namespace:ReciclaMe.Features.Classification"
-             x:DataType="vm:ClassificationPageViewModel"
-             x:Class="ReciclaMe.Features.Classification.ClassificationPage">
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+                xmlns:behaviors="clr-namespace:ReciclaMe.Animations"
+                Shell.NavBarIsVisible="False"
+                xmlns:vm="clr-namespace:ReciclaMe.Features.Classification"
+                x:DataType="vm:ClassificationPageViewModel"
+                x:Class="ReciclaMe.Features.Classification.ClassificationPage">
     <AbsoluteLayout
         SafeAreaEdges="None">
         <Image
@@ -15,7 +15,7 @@
             AbsoluteLayout.LayoutBounds="1,1,1,1"
             AbsoluteLayout.LayoutFlags="All"
             Opacity="0.56"
-            Source="bg2"/>
+            Source="bg2" />
         <Grid
             AbsoluteLayout.LayoutBounds="1,1,1,1"
             AbsoluteLayout.LayoutFlags="All"
@@ -23,142 +23,142 @@
             RowSpacing="12"
             RowDefinitions="Auto, *, Auto"
             ColumnDefinitions="*, *">
-        <Border
-            Grid.Column="0"
-            Grid.Row="0"
-            HorizontalOptions="Start"
-            HeightRequest="46"
-            WidthRequest="46"
-            StrokeShape="RoundRectangle 23"
-            BackgroundColor="{StaticResource TertiaryContainer}">
-            <Label
-                LineHeight="0"
-                HorizontalTextAlignment="Center"
-                VerticalTextAlignment="Center"
-                FontFamily="GIcons"
-                FontSize="26"
-                TextColor="{StaticResource OnTertiaryContainer}"
-                Text="&#xe5c4;" />
-            <Border.Shadow>
-                <Shadow Brush="{StaticResource TertiaryContainer}"
-                        Offset="0,4"
-                        Radius="8"
-                        Opacity="0.56" />
-            </Border.Shadow>
-            <Border.GestureRecognizers>
-                <TapGestureRecognizer 
-                    Command="{Binding BackCommand}" />
-            </Border.GestureRecognizers>
-        </Border>
-        <Border
-            HorizontalOptions="End"
-            Grid.Column="1"
-            Grid.Row="0"
-            HeightRequest="46"
-            WidthRequest="100"
-            StrokeShape="RoundRectangle 23"
-            BackgroundColor="{StaticResource TertiaryContainer}">
-            <HorizontalStackLayout
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                Spacing="8">
-                <Label
-                    LineHeight="0"
-                    VerticalTextAlignment="Center"
-                    TextColor="{StaticResource OnTertiaryContainer}"
-                    Style="{StaticResource BodyMdLabelStyle}"
-                    Text="{Binding Points}" />
-                <Label
-                    LineHeight="0"
-                    VerticalTextAlignment="Center"
-                    FontFamily="GIcons"
-                    FontSize="22"
-                    TextColor="{StaticResource OnTertiaryContainer}"
-                    Text="&#xea35;" />
-            </HorizontalStackLayout>
-            <Border.Shadow>
-                <Shadow Brush="{StaticResource TertiaryContainer}"
-                        Offset="0,4"
-                        Radius="8"
-                        Opacity="0.56" />
-            </Border.Shadow>
-        </Border>
-
-        <Grid
-            RowSpacing="12"
-            Grid.ColumnSpan="2"
-            Grid.Column="0"
-            Grid.Row="1"
-            VerticalOptions="Center"
-            ColumnDefinitions="*"
-            RowDefinitions="Auto, Auto, Auto">
-            <Image
-                Grid.Column="0"
-                Grid.Row="0"
-                HeightRequest="120"
-                Source="{Binding CharacterImageSource}"/>
-            <Label
-                Grid.Column="0"
-                Grid.Row="1"
-                VerticalTextAlignment="Center"
-                HorizontalTextAlignment="Center"
-                Style="{StaticResource HeadlineLgLabelStyle}"
-                TextColor="{StaticResource Tertiary}"
-                Text="¡Clasifica!" />
             <Border
                 Grid.Column="0"
-                Grid.Row="2"
-                HeightRequest="180"
-                WidthRequest="180"
-                Stroke="{StaticResource SecondaryContainer}"
-                StrokeThickness="4"
-                StrokeShape="RoundRectangle 10"
-                BackgroundColor="{StaticResource OnPrimary}">
-                <Image 
-                    Source="{Binding ImageSource}"/>
+                Grid.Row="0"
+                HorizontalOptions="Start"
+                HeightRequest="46"
+                WidthRequest="46"
+                StrokeShape="RoundRectangle 23"
+                BackgroundColor="{StaticResource TertiaryContainer}">
+                <Label
+                    LineHeight="0"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontFamily="GIcons"
+                    FontSize="26"
+                    TextColor="{StaticResource OnTertiaryContainer}"
+                    Text="&#xe5c4;" />
+                <Border.Shadow>
+                    <Shadow Brush="{StaticResource TertiaryContainer}"
+                            Offset="0,4"
+                            Radius="8"
+                            Opacity="0.56" />
+                </Border.Shadow>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding BackCommand}" />
+                </Border.GestureRecognizers>
             </Border>
+            <Border
+                HorizontalOptions="End"
+                Grid.Column="1"
+                Grid.Row="0"
+                HeightRequest="46"
+                WidthRequest="100"
+                StrokeShape="RoundRectangle 23"
+                BackgroundColor="{StaticResource TertiaryContainer}">
+                <HorizontalStackLayout
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Spacing="8">
+                    <Label
+                        LineHeight="0"
+                        VerticalTextAlignment="Center"
+                        TextColor="{StaticResource OnTertiaryContainer}"
+                        Style="{StaticResource BodyMdLabelStyle}"
+                        Text="{Binding Points}" />
+                    <Label
+                        LineHeight="0"
+                        VerticalTextAlignment="Center"
+                        FontFamily="GIcons"
+                        FontSize="22"
+                        TextColor="{StaticResource OnTertiaryContainer}"
+                        Text="&#xea35;" />
+                </HorizontalStackLayout>
+                <Border.Shadow>
+                    <Shadow Brush="{StaticResource TertiaryContainer}"
+                            Offset="0,4"
+                            Radius="8"
+                            Opacity="0.56" />
+                </Border.Shadow>
+            </Border>
+
+            <Grid
+                RowSpacing="12"
+                Grid.ColumnSpan="2"
+                Grid.Column="0"
+                Grid.Row="1"
+                VerticalOptions="Center"
+                ColumnDefinitions="*"
+                RowDefinitions="Auto, Auto, Auto">
+                <Image
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    HeightRequest="120"
+                    Source="{Binding CharacterImageSource}" />
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource HeadlineLgLabelStyle}"
+                    TextColor="{StaticResource Tertiary}"
+                    Text="¡Clasifica!" />
+                <Border
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    HeightRequest="180"
+                    WidthRequest="180"
+                    Stroke="{StaticResource SecondaryContainer}"
+                    StrokeThickness="4"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="{StaticResource OnPrimary}">
+                    <Image
+                        Source="{Binding ImageSource}" />
+                </Border>
+            </Grid>
+
+            <Image
+                HorizontalOptions="Start"
+                VerticalOptions="End"
+                Grid.Column="0"
+                Grid.Row="4"
+                Source="trash_gray"
+                HeightRequest="140">
+                <Image.Shadow>
+                    <Shadow Brush="{StaticResource Tertiary}"
+                            Offset="10,10"
+                            Opacity="0.36" />
+                </Image.Shadow>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding ValidateRecyclableCommand}" />
+                </Image.GestureRecognizers>
+                <Image.Behaviors>
+                    <behaviors:HeartBeatAnimationBehavior />
+                </Image.Behaviors>
+            </Image>
+            <Image
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Grid.Column="1"
+                Grid.Row="4"
+                Source="trash_orange"
+                HeightRequest="140">
+                <Image.Shadow>
+                    <Shadow Brush="{StaticResource Tertiary}"
+                            Offset="10,10"
+                            Opacity="0.36" />
+                </Image.Shadow>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding ValidateNoRecyclableCommand}" />
+                </Image.GestureRecognizers>
+                <Image.Behaviors>
+                    <behaviors:HeartBeatAnimationBehavior />
+                </Image.Behaviors>
+            </Image>
         </Grid>
-        
-        <Image
-            HorizontalOptions="Start"
-            VerticalOptions="End"
-            Grid.Column="0"
-            Grid.Row="4"
-            Source="trash_gray"
-            HeightRequest="140">
-            <Image.Shadow>
-                <Shadow Brush="{StaticResource Tertiary}"
-                        Offset="10,10"
-                        Opacity="0.36" />
-            </Image.Shadow>
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer
-                    Command="{Binding ValidateRecyclableCommand}" />
-            </Image.GestureRecognizers>
-            <Image.Behaviors>
-                <behaviors:HeartBeatAnimationBehavior />
-            </Image.Behaviors>
-        </Image>
-        <Image
-            HorizontalOptions="End"
-            VerticalOptions="End"
-            Grid.Column="1"
-            Grid.Row="4"
-            Source="trash_orange"
-            HeightRequest="140">
-            <Image.Shadow>
-                <Shadow Brush="{StaticResource Tertiary}"
-                        Offset="10,10"
-                        Opacity="0.36" />
-            </Image.Shadow>
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer
-                    Command="{Binding ValidateNoRecyclableCommand}" />
-            </Image.GestureRecognizers>
-            <Image.Behaviors>
-                <behaviors:HeartBeatAnimationBehavior />
-            </Image.Behaviors>
-        </Image>
-    </Grid>
     </AbsoluteLayout>
 </pages:BasePage>

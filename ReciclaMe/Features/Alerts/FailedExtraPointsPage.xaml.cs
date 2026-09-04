@@ -14,11 +14,4 @@ public partial class FailedExtraPointsPage : BasePage
         InitializeComponent();
         BindingContext = vm;
     }
-    
-    protected override async void OnAppearing()
-    {
-        base.OnAppearing();
-        var vm = (IViewModelLifeCycle) BindingContext;
-        await vm.OnAppearing();
-    }
 }

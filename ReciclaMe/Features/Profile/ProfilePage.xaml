@@ -64,6 +64,10 @@
                         FontFamily="GIcons"/>
                 </Button.ImageSource>
             </Button>
+            <Button 
+                Style="{StaticResource SecondaryButtonStyle}"
+                Command="{Binding GoToPrivacyPolicyCommand}"
+                Text="Política de privacidad" />
         </VerticalStackLayout>
         <Border
             StrokeShape="RoundRectangle 20, 20, 0, 0"
@@ -117,7 +121,6 @@
                     VerticalTextAlignment="Center"
                     FontFamily="GIcons"
                     FontSize="30"
-                    
                     TextColor="{StaticResource Background}"
                     Text="&#xe56a;">
                 </Label>

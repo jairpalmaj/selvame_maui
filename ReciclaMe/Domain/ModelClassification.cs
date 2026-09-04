@@ -2,7 +2,7 @@ namespace ReciclaMe.Domain;
 
 public record ModelClassification
 {
-    public string ImagePath { get; init; }
+    public string ImagePath { get; set; }
     public CategoryClass CategoryClass { get; init; }
     /// <summary>
     /// 0.0 - 1

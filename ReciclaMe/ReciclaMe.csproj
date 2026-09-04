@@ -19,9 +19,18 @@
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
-        <ApplicationVersion>2026081301</ApplicationVersion>
+        <ApplicationVersion>2026090401</ApplicationVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">26.0</SupportedOSPlatformVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0-ios|AnyCPU'">
+        <UseInterpreter>true</UseInterpreter>
+        <CreatePackage>false</CreatePackage>
+        <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+        <CodesignProvision>Automatic</CodesignProvision>
+        <CodesignKey>iPhone Distribution</CodesignKey>
+        <MtouchLink>SdkOnly</MtouchLink>
     </PropertyGroup>
 
     <ItemGroup>
@@ -51,6 +60,8 @@
 
     <ItemGroup>
         <PackageReference Include="CommunityToolkit.Maui" Version="15.0.0" />
+        <PackageReference Include="CommunityToolkit.Maui.Camera" Version="6.1.0" />
+        <PackageReference Include="CommunityToolkit.Maui.Core" Version="15.0.1" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.90" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.11" />

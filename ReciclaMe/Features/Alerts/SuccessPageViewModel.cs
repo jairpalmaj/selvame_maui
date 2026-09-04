@@ -34,7 +34,7 @@ public partial class SuccessPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task Continue()
     {
-        await NavigationService.NavigateAsync(nameof(LensesPageViewModel));
+        await NavigationService.NavigateAsync($"///{MainMenuRootPath}/{nameof(LensesPageViewModel)}");
     }
     
     public override void ApplyQueryAttributes(IDictionary<string, object> query)

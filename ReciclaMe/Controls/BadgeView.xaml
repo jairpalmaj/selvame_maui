@@ -11,8 +11,10 @@
         <Image 
             Source="{Binding Image}" />
         <Label 
+            LineHeight="1"
             HorizontalTextAlignment="Center"
             Style="{StaticResource BodySmLabelStyle}"
+            TextColor="{StaticResource OnBackground}"
             Text="{Binding Title}" />
     </VerticalStackLayout>
 </ContentView>

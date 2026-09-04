@@ -4,12 +4,14 @@ using ReciclaMe.Domain;
 using ReciclaMe.Features.Achievements;
 using ReciclaMe.Features.Common;
 using ReciclaMe.Features.Menu;
+using ReciclaMe.Infrastructure;
 
 namespace ReciclaMe.Features.Profile;
 
 public sealed partial class ProfilePageViewModel : BaseViewModel
 {
     private readonly IProfileRepository _profileRepository;
+    private readonly IImageService _imageService;
 
     [ObservableProperty]
     private string _characterName;
@@ -25,8 +27,10 @@ public sealed partial class ProfilePageViewModel : BaseViewModel
     
     public ProfilePageViewModel(INavigationService navigationService,
         IAlertService alertService,
-        IProfileRepository profileRepository) : base(navigationService, alertService)
+        IProfileRepository profileRepository,
+        IImageService imageService) : base(navigationService, alertService)
     {
+        _imageService = imageService;
         _profileRepository = profileRepository;
     }
 
@@ -55,7 +59,15 @@ public sealed partial class ProfilePageViewModel : BaseViewModel
     private async Task Delete()
     {
         await _profileRepository.DeleteAsync();
+        _imageService.DeleteAll();
         var app = App.Current as App;
         app?.NavigateToChoosePage();
+    }
+
+    [RelayCommand]
+    private async Task GoToPrivacyPolicy()
+    {
+        const string url = "https://jairpalma.com.mx/politica-de-privacidad-de-selvame/";
+        await Launcher.Default.OpenAsync(url);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Core;
 using Microsoft.Extensions.Logging;
 using ReciclaMe.Features.Common;
 
@@ -10,7 +11,9 @@ public static class MauiProgram
     {
         var builder = MauiApp.CreateBuilder();
         builder
+            .UseMauiCommunityToolkitCore()
             .UseMauiCommunityToolkit()
+            .UseMauiCommunityToolkitCamera()
             .UseMauiApp<App>()
             .ConfigureFonts(fonts =>
             {

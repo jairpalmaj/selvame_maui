@@ -4,11 +4,14 @@ using ReciclaMe.Domain;
 using ReciclaMe.Features.Common;
 using ReciclaMe.Features.ExplorerLenses;
 using ReciclaMe.Features.Menu;
+using ReciclaMe.Infrastructure;
 
 namespace ReciclaMe.Features.Learn;
 
 public sealed partial class LearnPageViewModel : BaseViewModel
 {
+    private readonly IImageService _imageService;
+
     private ModelClassification _categoryClass;
     
     [ObservableProperty]
@@ -36,20 +39,24 @@ public sealed partial class LearnPageViewModel : BaseViewModel
     private bool _isRecyclable;
     
     public LearnPageViewModel(INavigationService navigationService,
-        IAlertService alertService) : base(navigationService, alertService)
+        IAlertService alertService,
+        IImageService imageService) : base(navigationService, alertService)
     {
+        _imageService =  imageService;
     }
     
     [RelayCommand]
     private async Task Understood()
     {
-        await NavigationService.NavigateAsync(nameof(MenuPageViewModel));
+        //delete file
+        _imageService.DeletePicture();
+        await NavigationService.NavigateAsync($"///{MainMenuRootPath}");
     }
     
     [RelayCommand]
     private async Task Continue()
     {
-        await NavigationService.NavigateAsync(nameof(LearningLensesPageViewModel));
+        await NavigationService.NavigateAsync($"///{MainMenuRootPath}/{nameof(LearningLensesPageViewModel)}");
     }
 
     public override void ApplyQueryAttributes(IDictionary<string, object> query)

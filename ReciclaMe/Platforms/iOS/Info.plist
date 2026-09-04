@@ -30,5 +30,9 @@
 	<string>Assets.xcassets/appicon.appiconset</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Para fotografiar objetos y ayudarte a identificarlos mientras juegas.</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 </dict>
 </plist>

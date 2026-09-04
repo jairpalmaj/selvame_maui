@@ -16,6 +16,7 @@ public static class ServicesExtensions
         builder.Services.AddSingleton<ICharacterRepository, MockCharacterRepository>();
         builder.Services.AddSingleton<IProfileRepository, SqliteProfileRepository>();
         builder.Services.AddSingleton<IClassificationModelService, MockClassificationModelService>();
+        builder.Services.AddSingleton<IImageService, ImageService>();
         return builder;
     }
 }

@@ -107,7 +107,7 @@
             </Border.Shadow>
         </Border>
         <Grid
-            RowSpacing="12"
+            RowSpacing="4"
             RowDefinitions="*, *"
             ColumnDefinitions="*, *"
             Grid.Column="0"
@@ -115,22 +115,22 @@
             Grid.Row="2">
             <controls:BadgeView
                 Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge1}"
-                Title="Guardián del Agua"
+                Title="20 puntos &#x0a;Trofeo del Agua"
                 Grid.Column="0"
                 Grid.Row="0" />
             <controls:BadgeView
                 Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge2}"
-                Title="Héroe del Aire"
+                Title="40 puntos &#x0a;Trofeo del Aire"
                 Grid.Column="1"
                 Grid.Row="0" />
             <controls:BadgeView
                 Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge3}"
-                Title="Amigo del Bosque"
+                Title="60 puntos &#x0a;Trofeo del Bosque"
                 Grid.Column="0"
                 Grid.Row="1" />
             <controls:BadgeView
                 Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge4}"
-                Title="Rey de la Jungla"
+                Title="100 puntos &#x0a;Trofeo de la Jungla"
                 Grid.Column="1"
                 Grid.Row="1" />
         </Grid>

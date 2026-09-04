@@ -12,7 +12,7 @@ public sealed class MockCharacterRepository : ICharacterRepository
         {
             _characters =
             [
-                new Character(1, "Tucky", "Creativity", "\ue40a", "character1"),
+                new Character(1, "Tucky", "Creatividad", "\ue40a", "character1"),
                 new Character(2, "Balam", "Agilidad", "\uebc4", "character2"),
                 new Character(3, "Drílan", "Inteligencia", "\uefac", "character3"),
                 new Character(4, "Flami", "Fuerza", "\uf6e6", "character4"),
