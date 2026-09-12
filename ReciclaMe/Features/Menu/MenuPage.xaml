@@ -1,180 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
-             Shell.NavBarIsVisible="False"
-             xmlns:vm="clr-namespace:ReciclaMe.Features.Menu"
-             x:DataType="vm:MenuPageViewModel"
-             x:Class="ReciclaMe.Features.Menu.MenuPage">
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+                Shell.NavBarIsVisible="False"
+                xmlns:vm="clr-namespace:ReciclaMe.Features.Menu"
+                x:DataType="vm:MenuPageViewModel"
+                x:Class="ReciclaMe.Features.Menu.MenuPage">
     <Grid
         SafeAreaEdges="None"
-        ColumnDefinitions="*, *"
-        RowDefinitions="Auto, *, *, *">
-        <VerticalStackLayout
-            Grid.Column="0"
-            Grid.Row="0">
-            <Image
-                HeightRequest="100"
-                Source="{Binding CharacterImageSource}"/>
-            <Label 
-                LineHeight="0"
-                TextColor="{StaticResource Tertiary}"
-                Style="{StaticResource HeadlineSmLabelStyle}"
-                HorizontalTextAlignment="Center"
-                Text="{Binding CharacterName}" />
-        </VerticalStackLayout>
-        <Border
-            StrokeShape="RoundRectangle 20"
-            Grid.Column="1"
-            Grid.Row="0"
-            StrokeThickness="2"
-            Stroke="Black"
-            BackgroundColor="{StaticResource SecondaryContainer}"
-            WidthRequest="160"
-            HeightRequest="44">
-            <Border.Shadow>
-                <Shadow Brush="Black"
-                        Offset="0,6"
-                        Radius="1"
-                        Opacity="1" />
-            </Border.Shadow>
-            <HorizontalStackLayout
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                Spacing="8">
-                <Label
-                    LineHeight="0"
-                    VerticalTextAlignment="Center"
-                    TextColor="{StaticResource OnBackground}"
-                    Style="{StaticResource BodyMdLabelStyle}"
-                    Text="{Binding Points}" />
-                <Label
-                    LineHeight="0"
-                    VerticalTextAlignment="Center"
-                    FontFamily="GIcons"
-                    FontSize="26"
-                    TextColor="{StaticResource Primary}"
-                    Text="&#xea35;" />
-            </HorizontalStackLayout>
-        </Border>
-        <VerticalStackLayout
-            VerticalOptions="Center"
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
-            Grid.Row="1">
-            <Label 
-                Style="{StaticResource HeadlineLgLabelStyle}"
-                TextColor="{StaticResource Primary}"
-                HorizontalTextAlignment="Center"
-                Text="¡Salva la Selva!" />
-            <Label 
-                Style="{StaticResource HeadlineSmLabelStyle}"
-                TextColor="{StaticResource Secondary}"
-                HorizontalTextAlignment="Center"
-                Text="¿Qué haremos hoy?"/>
-        </VerticalStackLayout>
-        <Border
-            StrokeShape="RoundRectangle 20"
-            Grid.Column="0"
-            Grid.Row="2"
-            StrokeThickness="2"
-            Stroke="{StaticResource TertiaryContainer}"
-            BackgroundColor="{StaticResource TertiaryContainer}"
-            WidthRequest="160"
-            HeightRequest="200">
-            <Border.Shadow>
-                <Shadow Brush="{StaticResource OnTertiaryFixedVariant}"
-                        Offset="0,8"
-                        Radius="1"
-                        Opacity="1" />
-            </Border.Shadow>
-            <VerticalStackLayout
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                Spacing="8">
-                <Border
-                    HeightRequest="80"
-                    WidthRequest="80"
-                    Stroke="{StaticResource Background}"
-                    StrokeThickness="4"
-                    StrokeShape="RoundRectangle 40"
-                    BackgroundColor="{StaticResource SecondaryContainer}">
+        ColumnDefinitions="*"
+        RowDefinitions="*, Auto">
+        <ScrollView>
+            <Grid
+                ColumnDefinitions="*, *"
+                RowDefinitions="Auto, *, *">
+                <VerticalStackLayout
+                    Grid.Column="0"
+                    Grid.Row="0">
+                    <Image
+                        HeightRequest="100"
+                        Source="{Binding CharacterImageSource}" />
                     <Label
                         LineHeight="0"
+                        TextColor="{StaticResource Tertiary}"
+                        Style="{StaticResource HeadlineSmLabelStyle}"
                         HorizontalTextAlignment="Center"
-                        VerticalTextAlignment="Center"
-                        FontFamily="GIcons"
-                        FontSize="40"
-                        TextColor="{StaticResource OnSecondaryFixed}"
-                        Text="&#xea28;" />
-                </Border>
-                <Label
-                    VerticalTextAlignment="Center"
-                    TextColor="{StaticResource Background}"
-                    Style="{StaticResource HeadlineMdLabelStyle}"
-                    Text="Jugar" />
-                <VerticalStackLayout.GestureRecognizers>
-                    <TapGestureRecognizer 
-                        Command="{Binding PlayCommand}" />
-                </VerticalStackLayout.GestureRecognizers>
-            </VerticalStackLayout>
-            <Border.GestureRecognizers>
-                <TapGestureRecognizer 
-                    Command="{Binding PlayCommand}" />
-            </Border.GestureRecognizers>
-        </Border>
-        <Border
-            StrokeShape="RoundRectangle 20"
-            Grid.Column="1"
-            Grid.Row="2"
-            StrokeThickness="2"
-            Stroke="{StaticResource TertiaryContainer}"
-            BackgroundColor="{StaticResource TertiaryContainer}"
-            WidthRequest="160"
-            HeightRequest="200">
-            <Border.Shadow>
-                <Shadow Brush="{StaticResource OnTertiaryFixedVariant}"
-                        Offset="0,8"
-                        Radius="1"
-                        Opacity="1" />
-            </Border.Shadow>
-            <VerticalStackLayout
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                Spacing="8">
+                        Text="{Binding CharacterName}" />
+                </VerticalStackLayout>
                 <Border
-                    HeightRequest="80"
-                    WidthRequest="80"
-                    Stroke="{StaticResource Background}"
-                    StrokeThickness="4"
-                    StrokeShape="RoundRectangle 40"
-                    BackgroundColor="{StaticResource PaperBlue}">
-                    <Label
-                        LineHeight="0"
-                        HorizontalTextAlignment="Center"
-                        VerticalTextAlignment="Center"
-                        FontFamily="GIcons"
-                        FontSize="40"
-                        TextColor="{StaticResource Background}"
-                        Text="&#xf539;" />
+                    StrokeShape="RoundRectangle 20"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    StrokeThickness="2"
+                    Stroke="Black"
+                    BackgroundColor="{StaticResource SecondaryContainer}"
+                    WidthRequest="160"
+                    HeightRequest="44">
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                                Offset="0,6"
+                                Radius="1"
+                                Opacity="1" />
+                    </Border.Shadow>
+                    <HorizontalStackLayout
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Spacing="8">
+                        <Label
+                            LineHeight="0"
+                            VerticalTextAlignment="Center"
+                            TextColor="{StaticResource OnBackground}"
+                            Style="{StaticResource BodyMdLabelStyle}"
+                            Text="{Binding Points}" />
+                        <Label
+                            LineHeight="0"
+                            VerticalTextAlignment="Center"
+                            FontFamily="GIcons"
+                            FontSize="26"
+                            TextColor="{StaticResource Primary}"
+                            Text="&#xea35;" />
+                    </HorizontalStackLayout>
                 </Border>
-                <Label
-                    VerticalTextAlignment="Center"
-                    TextColor="{StaticResource Background}"
-                    Style="{StaticResource HeadlineMdLabelStyle}"
-                    Text="Aprender" />
-            </VerticalStackLayout>
-            <Border.GestureRecognizers>
-                <TapGestureRecognizer 
-                    Command="{Binding LearnCommand}" />
-            </Border.GestureRecognizers>
-        </Border>
+                <VerticalStackLayout
+                    VerticalOptions="Center"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="1">
+                    <Label
+                        Style="{StaticResource HeadlineLgLabelStyle}"
+                        TextColor="{StaticResource Primary}"
+                        HorizontalTextAlignment="Center"
+                        Text="¡Salva la Selva!" />
+                    <Label
+                        Style="{StaticResource HeadlineSmLabelStyle}"
+                        TextColor="{StaticResource Secondary}"
+                        HorizontalTextAlignment="Center"
+                        Text="¿Qué haremos hoy?" />
+                </VerticalStackLayout>
+                <Border
+                    StrokeShape="RoundRectangle 20"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    StrokeThickness="2"
+                    Stroke="{StaticResource TertiaryContainer}"
+                    BackgroundColor="{StaticResource TertiaryContainer}"
+                    WidthRequest="160"
+                    HeightRequest="200">
+                    <Border.Shadow>
+                        <Shadow Brush="{StaticResource OnTertiaryFixedVariant}"
+                                Offset="0,8"
+                                Radius="1"
+                                Opacity="1" />
+                    </Border.Shadow>
+                    <VerticalStackLayout
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Spacing="8">
+                        <Border
+                            HeightRequest="80"
+                            WidthRequest="80"
+                            Stroke="{StaticResource Background}"
+                            StrokeThickness="4"
+                            StrokeShape="RoundRectangle 40"
+                            BackgroundColor="{StaticResource SecondaryContainer}">
+                            <Label
+                                LineHeight="0"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                FontFamily="GIcons"
+                                FontSize="40"
+                                TextColor="{StaticResource OnSecondaryFixed}"
+                                Text="&#xea28;" />
+                        </Border>
+                        <Label
+                            VerticalTextAlignment="Center"
+                            TextColor="{StaticResource Background}"
+                            Style="{StaticResource HeadlineMdLabelStyle}"
+                            Text="Jugar" />
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding PlayCommand}" />
+                        </VerticalStackLayout.GestureRecognizers>
+                    </VerticalStackLayout>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding PlayCommand}" />
+                    </Border.GestureRecognizers>
+                </Border>
+                <Border
+                    StrokeShape="RoundRectangle 20"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    StrokeThickness="2"
+                    Stroke="{StaticResource TertiaryContainer}"
+                    BackgroundColor="{StaticResource TertiaryContainer}"
+                    WidthRequest="160"
+                    HeightRequest="200">
+                    <Border.Shadow>
+                        <Shadow Brush="{StaticResource OnTertiaryFixedVariant}"
+                                Offset="0,8"
+                                Radius="1"
+                                Opacity="1" />
+                    </Border.Shadow>
+                    <VerticalStackLayout
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Spacing="8">
+                        <Border
+                            HeightRequest="80"
+                            WidthRequest="80"
+                            Stroke="{StaticResource Background}"
+                            StrokeThickness="4"
+                            StrokeShape="RoundRectangle 40"
+                            BackgroundColor="{StaticResource PaperBlue}">
+                            <Label
+                                LineHeight="0"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                FontFamily="GIcons"
+                                FontSize="40"
+                                TextColor="{StaticResource Background}"
+                                Text="&#xf539;" />
+                        </Border>
+                        <Label
+                            VerticalTextAlignment="Center"
+                            TextColor="{StaticResource Background}"
+                            Style="{StaticResource HeadlineMdLabelStyle}"
+                            Text="Aprender" />
+                    </VerticalStackLayout>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding LearnCommand}" />
+                    </Border.GestureRecognizers>
+                </Border>
+
+            </Grid>
+        </ScrollView>
         <Border
             StrokeShape="RoundRectangle 20, 20, 0, 0"
             Grid.Column="0"
-            Grid.ColumnSpan="2"
-            Grid.Row="3"        
+            Grid.Row="1"
             Padding="16"
             BackgroundColor="{StaticResource PrimaryContainer}"
             VerticalOptions="End">
@@ -204,8 +210,8 @@
                     TextColor="{StaticResource Background}"
                     Text="&#xefb6;">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer 
-                            Command="{Binding GoToAchievementsCommand}"/>
+                        <TapGestureRecognizer
+                            Command="{Binding GoToAchievementsCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
                 <Label
@@ -220,8 +226,8 @@
                     TextColor="{StaticResource Background}"
                     Text="&#xe56a;">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer 
-                            Command="{Binding GoToProfileCommand}"/>
+                        <TapGestureRecognizer
+                            Command="{Binding GoToProfileCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
             </Grid>

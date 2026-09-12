@@ -69,10 +69,27 @@
     <Color x:Key="Moss">#A4B494</Color>
     <Color x:Key="PoisonDartRed">#D64933</Color>
     <Color x:Key="PaperBlue">#3A86FF</Color>
+    <Color x:Key="PaperBlueDim">#F1F9FD</Color>
     <Color x:Key="PlasticYellow">#FFBE0B</Color>
     <Color x:Key="GlassPurple">#8338EC</Color>
     <Color x:Key="OrganicBrown">#6F4E37</Color>
     <Color x:Key="PureWhite">#FFFFFF</Color>
     <Color x:Key="Gray">Gray</Color>
     <Color x:Key="Orange">#f9943b</Color>
+    
+    <Color x:Key="JungleGreen">#3B7A24</Color>
+    <Color x:Key="JungleGreenDark">#1E4211</Color>
+    <Color x:Key="SandBg">#FFF8EF</Color>
+    <Color x:Key="WoodDark">#4A3320</Color>
+    <Color x:Key="WoodBark">#7E5B3E</Color>
+    <Color x:Key="SoilDark">#2D2318</Color>
+    <Color x:Key="BananaYellow">#F9C22E</Color>
+    <Color x:Key="BananaYellowDim">#FFFBEC</Color>
+    <Color x:Key="LeafAccent">#5BA832</Color>
+    <Color x:Key="MetalGray">#E2E8F0</Color>
+    <Color x:Key="CartonOrange">#D97706</Color>
+    <Color x:Key="TrashBrown">#78350F</Color>
+    <Color x:Key="Menta">#00C48C</Color>
+    <Color x:Key="Turquesa">#ECFDF5</Color>
+
 </ResourceDictionary>

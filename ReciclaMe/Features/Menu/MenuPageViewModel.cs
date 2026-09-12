@@ -4,8 +4,8 @@ using ReciclaMe.Domain;
 using ReciclaMe.Features.Achievements;
 using ReciclaMe.Features.Common;
 using ReciclaMe.Features.ExplorerLenses;
-using ReciclaMe.Features.Learn;
 using ReciclaMe.Features.Profile;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.Menu;
 
@@ -24,7 +24,9 @@ public sealed partial class MenuPageViewModel : BaseViewModel
     
     public MenuPageViewModel(INavigationService navigationService,
         IAlertService alertService,
-        IProfileRepository profileRepository) : base(navigationService, alertService)
+        IProfileRepository profileRepository, 
+        IAnalyticsService analyticsService,
+        ICrashReportService crashReportService) : base(navigationService, alertService, analyticsService, crashReportService)
     {
         _profileRepository =  profileRepository;
     }
@@ -41,6 +43,7 @@ public sealed partial class MenuPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task Play()
     {
+        AnalyticsService.Count(AnalyticsKeys.PlayFeature, 1);
         await CheckPermissionsAndNavigateAsync(nameof(LensesPageViewModel));
     }
 
@@ -61,6 +64,7 @@ public sealed partial class MenuPageViewModel : BaseViewModel
                 "Configurar", "OK");
             if (isSetUpSelected)
             {
+                AnalyticsService.Count(AnalyticsKeys.EnableCameraPermissions, 1);
                 AppInfo.ShowSettingsUI();
             }
         }
@@ -73,6 +77,7 @@ public sealed partial class MenuPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task Learn()
     {
+        AnalyticsService.Count(AnalyticsKeys.LearnFeature, 1);
         await CheckPermissionsAndNavigateAsync(nameof(LearningLensesPageViewModel));
     }
     

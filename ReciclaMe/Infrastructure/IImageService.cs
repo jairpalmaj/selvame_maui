@@ -6,5 +6,6 @@ public interface IImageService
     void DeletePicture(string fileName = "img.png");
     Stream ResizeByFileNameAsync(string fileName = "img.png"); 
     Stream ResizeByPathAsync(string path);
+    Stream ReadPhoto(string path);
     void DeleteAll();
 }

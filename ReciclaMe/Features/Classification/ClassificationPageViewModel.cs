@@ -4,6 +4,7 @@ using ReciclaMe.Domain;
 using ReciclaMe.Features.Common;
 using ReciclaMe.Features.Alerts;
 using ReciclaMe.Features.ExplorerLenses;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.Classification;
 
@@ -23,7 +24,9 @@ public partial class ClassificationPageViewModel : BaseViewModel
     
     public ClassificationPageViewModel(INavigationService navigationService,
         IAlertService alertService,
-        IProfileRepository profileRepository) : base(navigationService, alertService)
+        IProfileRepository profileRepository,
+        IAnalyticsService analyticsService,
+        ICrashReportService crashReportService) : base(navigationService, alertService, analyticsService, crashReportService)
     {
         _profileRepository = profileRepository;
     }

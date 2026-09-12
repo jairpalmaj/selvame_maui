@@ -49,6 +49,11 @@ public sealed class ImageService : IImageService
         }
     }
 
+    public Stream ReadPhoto(string path)
+    {
+        return GetFileStream(path);
+    }
+
     public void DeleteAll()
     {
         try

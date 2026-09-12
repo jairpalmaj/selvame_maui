@@ -14,7 +14,7 @@ public sealed class MockCategoryClassRepository : ICategoryClassRepository
             {
                 new ()
                 {
-                    Id = 1,
+                    Id = 2,
                     Category = Category.Cardboard,
                     Title = "Cartón",
                     IsRecyclable = true,
@@ -22,7 +22,7 @@ public sealed class MockCategoryClassRepository : ICategoryClassRepository
                 },
                 new ()
                 {
-                    Id = 2,
+                    Id = 4,
                     Category = Category.Glass,
                     Title = "Vidrio",
                     IsRecyclable = true,
@@ -30,7 +30,7 @@ public sealed class MockCategoryClassRepository : ICategoryClassRepository
                 },
                 new ()
                 {
-                    Id = 3,
+                    Id = 1,
                     Category = Category.Metal,
                     Title = "Metal",
                     IsRecyclable = true,
@@ -38,7 +38,7 @@ public sealed class MockCategoryClassRepository : ICategoryClassRepository
                 },
                 new ()
                 {
-                    Id = 4,
+                    Id = 0,
                     Category = Category.Paper,
                     Title = "Papel",
                     IsRecyclable = true,
@@ -54,7 +54,7 @@ public sealed class MockCategoryClassRepository : ICategoryClassRepository
                 },
                 new ()
                 {
-                    Id = 6,
+                    Id = 3,
                     Category = Category.Trash,
                     Title = "Basura",
                     IsRecyclable = false,

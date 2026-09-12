@@ -4,6 +4,7 @@ using ReciclaMe.Domain;
 using ReciclaMe.Features.Common;
 using ReciclaMe.Features.Menu;
 using ReciclaMe.Features.Profile;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.Achievements;
 
@@ -42,7 +43,9 @@ public sealed partial class AchievementPageViewModel : BaseViewModel
     
     public AchievementPageViewModel(INavigationService navigationService,
         IAlertService alertService,
-        IProfileRepository profileRepository) : base(navigationService, alertService)
+        IProfileRepository profileRepository,
+        IAnalyticsService analyticsService,
+        ICrashReportService crashReportService) : base(navigationService, alertService, analyticsService, crashReportService)
     {
         _profileRepository = profileRepository;
         Badge1 = "badge_locked";
@@ -51,7 +54,7 @@ public sealed partial class AchievementPageViewModel : BaseViewModel
         Badge4 = "badge_locked";
     }
 
-    public async override Task OnAppearing()
+    public override async Task OnAppearing()
     {
         var character = await _profileRepository.GetCharacterAsync();
         CharacterImageSource = character.ImageSource;
@@ -61,7 +64,7 @@ public sealed partial class AchievementPageViewModel : BaseViewModel
         //convert from value 0 - 1
         Progress = percentage / 100f;
         ProgressLabel = $"{percentage}%";
-        
+        AnalyticsService.EmitDistribution(AnalyticsKeys.AppProgress, percentage, DistributionType.Percentage);
         //validate
         UnlockBadges(Points);
     }
@@ -78,21 +81,43 @@ public sealed partial class AchievementPageViewModel : BaseViewModel
         if (points >= 20)
         {
             Badge1 = "badge_water";
+            CheckAndSaveBadges(Badge1, 20);
         }
         
         if (points >= 40)
         {
             Badge2 = "badge_air";
+            CheckAndSaveBadges(Badge2, 40);
         }
         
         if (points >= 60)
         {
             Badge3 = "badge_tree";
+            CheckAndSaveBadges(Badge3, 60);
         }
         
         if (points >= 100)
         {
             Badge4 = "badge_monkey";
+            CheckAndSaveBadges(Badge4, 100);
+        }
+    }
+
+    /// <summary>
+    /// This helps to check just once
+    /// if the user got the badge
+    /// previously
+    /// </summary>
+    private void CheckAndSaveBadges(string badgeName, int points)
+    {
+        if (!Preferences.Get(badgeName, false))
+        {
+            //we log once time user gets the badge
+            Preferences.Set(badgeName, true);
+            AnalyticsService.Count(AnalyticsKeys.BadgeEarned, 1, [
+                new KeyValuePair<string, object>("Badge", badgeName),
+                new KeyValuePair<string, object>("Points", points)
+            ]);
         }
     }
 

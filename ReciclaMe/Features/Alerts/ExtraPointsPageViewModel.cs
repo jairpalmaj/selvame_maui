@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using ReciclaMe.Domain;
 using ReciclaMe.Features.Common;
 using ReciclaMe.Features.ExplorerLenses;
-using ReciclaMe.Features.Menu;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.Alerts;
 
@@ -26,8 +26,12 @@ public sealed partial class ExtraPointsPageViewModel : BaseViewModel
     [ObservableProperty]
     private string _pointsInformation;
     
-    public ExtraPointsPageViewModel(INavigationService navigationService, IAlertService alertService) : base(navigationService, alertService)
+    public ExtraPointsPageViewModel(INavigationService navigationService, 
+        IAlertService alertService,         
+        IAnalyticsService analyticsService,
+        ICrashReportService crashReportService) : base(navigationService, alertService, analyticsService, crashReportService)
     {
+        
     }
     
     public override void ApplyQueryAttributes(IDictionary<string, object> query)

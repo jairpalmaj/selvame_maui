@@ -5,6 +5,7 @@ using ReciclaMe.Features.Achievements;
 using ReciclaMe.Features.Common;
 using ReciclaMe.Features.Menu;
 using ReciclaMe.Infrastructure;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.Profile;
 
@@ -25,13 +26,19 @@ public sealed partial class ProfilePageViewModel : BaseViewModel
     [ObservableProperty]
     private string _characterSkillName;
     
+    [ObservableProperty]
+    private string _appVersion;
+    
     public ProfilePageViewModel(INavigationService navigationService,
         IAlertService alertService,
         IProfileRepository profileRepository,
-        IImageService imageService) : base(navigationService, alertService)
+        IImageService imageService,
+        IAnalyticsService analyticsService,
+        ICrashReportService crashReportService) : base(navigationService, alertService, analyticsService, crashReportService)
     {
         _imageService = imageService;
         _profileRepository = profileRepository;
+        AppVersion = $"Versión {AppInfo.Current.VersionString} ({AppInfo.Current.BuildString})";
     }
 
     public override async Task OnAppearing()
@@ -58,6 +65,7 @@ public sealed partial class ProfilePageViewModel : BaseViewModel
     [RelayCommand]
     private async Task Delete()
     {
+        AnalyticsService.Count(AnalyticsKeys.DeleteAccount, 1);
         await _profileRepository.DeleteAsync();
         _imageService.DeleteAll();
         var app = App.Current as App;
@@ -67,6 +75,7 @@ public sealed partial class ProfilePageViewModel : BaseViewModel
     [RelayCommand]
     private async Task GoToPrivacyPolicy()
     {
+        AnalyticsService.Count(AnalyticsKeys.PrivacyPolicySelection, 1);
         const string url = "https://jairpalma.com.mx/politica-de-privacidad-de-selvame/";
         await Launcher.Default.OpenAsync(url);
     }

@@ -40,7 +40,7 @@
             StrokeShape="RoundRectangle 90"
             BackgroundColor="{StaticResource OnPrimary}">
             <Image 
-                Source="{Binding ImageSource}"/>
+                Source="{Binding ImageSource, Converter={StaticResource ImagePathToSource}}"/>
         </Border>
         <Border
             Rotation="356"

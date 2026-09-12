@@ -11,134 +11,142 @@
                 x:Class="ReciclaMe.Features.Achievements.AchievementPage">
     <Grid
         SafeAreaEdges="None"
-        RowDefinitions="Auto, Auto, Auto, *"
-        ColumnDefinitions="*, *">
-        <VerticalStackLayout
+        RowDefinitions="*, Auto"
+        ColumnDefinitions="*">
+        <ScrollView
             Grid.Column="0"
             Grid.Row="0">
-            <Image
-                HeightRequest="100"
-                Source="{Binding CharacterImageSource}"/>
-            <Label 
-                LineHeight="0"
-                TextColor="{StaticResource Tertiary}"
-                Style="{StaticResource HeadlineSmLabelStyle}"
-                HorizontalTextAlignment="Center"
-                Text="{Binding CharacterName}" />
-        </VerticalStackLayout>
-        <Border
-            StrokeShape="RoundRectangle 20"
-            Grid.Column="1"
-            Grid.Row="0"
-            StrokeThickness="2"
-            Stroke="Black"
-            BackgroundColor="{StaticResource SecondaryContainer}"
-            WidthRequest="160"
-            HeightRequest="44">
-            <Border.Shadow>
-                <Shadow Brush="Black"
-                        Offset="0,6"
-                        Radius="1"
-                        Opacity="1" />
-            </Border.Shadow>
-            <HorizontalStackLayout
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                Spacing="8">
-                <Label
-                    LineHeight="0"
-                    VerticalTextAlignment="Center"
-                    TextColor="{StaticResource OnBackground}"
-                    Style="{StaticResource BodyMdLabelStyle}"
-                    Text="{Binding Points}" />
-                <Label
-                    LineHeight="0"
-                    VerticalTextAlignment="Center"
-                    FontFamily="GIcons"
-                    FontSize="26"
-                    TextColor="{StaticResource Primary}"
-                    Text="&#xea35;" />
-            </HorizontalStackLayout>
-        </Border>
-        <Border
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
-            Grid.Row="1"
-            Margin="20"
-            StrokeShape="RoundRectangle 20"
-            StrokeThickness="4"
-            Stroke="{StaticResource OnTertiaryFixedVariant}"
-            BackgroundColor="{StaticResource TertiaryContainer}">
-            <VerticalStackLayout
-                Spacing="12"
-                Padding="20, 10">
-                <Label
-                    LineHeight="0"
-                    Style="{StaticResource BodyMdLabelStyle}"
-                    TextColor="{StaticResource OnTertiaryContainer}"
-                    Text="Progreso de Reciclaje" />
-                <Label
-                    LineHeight="0"
-                    HorizontalTextAlignment="End"
-                    Style="{StaticResource BodyMdLabelStyle}"
-                    TextColor="{StaticResource OnTertiaryContainer}"
-                    Text="{Binding ProgressLabel}" />
-                <ProgressBar
-                    ProgressColor="{StaticResource Primary}"
-                    Progress="{Binding Progress}">
-                    <ProgressBar.BackgroundColor>
-                        <OnPlatform x:TypeArguments="Color">
-                            <On Platform="iOS" Value="{StaticResource OnTertiaryContainer}" />
-                        </OnPlatform>
-                    </ProgressBar.BackgroundColor>
-                </ProgressBar>
-                <Label
-                    LineHeight="0"
-                    HorizontalTextAlignment="End"
-                    Style="{StaticResource BodySmLabelStyle}"
-                    TextColor="{StaticResource OnTertiaryContainer}"
-                    Text="¡Sigue así explorador!" />
-            </VerticalStackLayout>
-            <Border.Shadow>
-                <Shadow Brush="{StaticResource OnTertiaryFixedVariant}"
-                        Offset="0,6"
-                        Radius="1"
-                        Opacity="1" />
-            </Border.Shadow>
-        </Border>
-        <Grid
-            RowSpacing="4"
-            RowDefinitions="*, *"
-            ColumnDefinitions="*, *"
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
-            Grid.Row="2">
-            <controls:BadgeView
-                Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge1}"
-                Title="20 puntos &#x0a;Trofeo del Agua"
-                Grid.Column="0"
-                Grid.Row="0" />
-            <controls:BadgeView
-                Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge2}"
-                Title="40 puntos &#x0a;Trofeo del Aire"
-                Grid.Column="1"
-                Grid.Row="0" />
-            <controls:BadgeView
-                Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge3}"
-                Title="60 puntos &#x0a;Trofeo del Bosque"
-                Grid.Column="0"
-                Grid.Row="1" />
-            <controls:BadgeView
-                Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge4}"
-                Title="100 puntos &#x0a;Trofeo de la Jungla"
-                Grid.Column="1"
-                Grid.Row="1" />
-        </Grid>
+            <Grid
+                RowDefinitions="Auto, Auto, *, Auto"
+                ColumnDefinitions="*, *">
+                <VerticalStackLayout
+                    Grid.Column="0"
+                    Grid.Row="0">
+                    <Image
+                        HeightRequest="100"
+                        Source="{Binding CharacterImageSource}" />
+                    <Label
+                        LineHeight="0"
+                        TextColor="{StaticResource Tertiary}"
+                        Style="{StaticResource HeadlineSmLabelStyle}"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding CharacterName}" />
+                </VerticalStackLayout>
+                <Border
+                    StrokeShape="RoundRectangle 20"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    StrokeThickness="2"
+                    Stroke="Black"
+                    BackgroundColor="{StaticResource SecondaryContainer}"
+                    WidthRequest="160"
+                    HeightRequest="44">
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                                Offset="0,6"
+                                Radius="1"
+                                Opacity="1" />
+                    </Border.Shadow>
+                    <HorizontalStackLayout
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Spacing="8">
+                        <Label
+                            LineHeight="0"
+                            VerticalTextAlignment="Center"
+                            TextColor="{StaticResource OnBackground}"
+                            Style="{StaticResource BodyMdLabelStyle}"
+                            Text="{Binding Points}" />
+                        <Label
+                            LineHeight="0"
+                            VerticalTextAlignment="Center"
+                            FontFamily="GIcons"
+                            FontSize="26"
+                            TextColor="{StaticResource Primary}"
+                            Text="&#xea35;" />
+                    </HorizontalStackLayout>
+                </Border>
+                <Border
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="1"
+                    Margin="20"
+                    StrokeShape="RoundRectangle 20"
+                    StrokeThickness="4"
+                    Stroke="{StaticResource OnTertiaryFixedVariant}"
+                    BackgroundColor="{StaticResource TertiaryContainer}">
+                    <VerticalStackLayout
+                        Spacing="12"
+                        Padding="20, 10">
+                        <Label
+                            LineHeight="0"
+                            Style="{StaticResource BodyMdLabelStyle}"
+                            TextColor="{StaticResource OnTertiaryContainer}"
+                            Text="Progreso de Reciclaje" />
+                        <Label
+                            LineHeight="0"
+                            HorizontalTextAlignment="End"
+                            Style="{StaticResource BodyMdLabelStyle}"
+                            TextColor="{StaticResource OnTertiaryContainer}"
+                            Text="{Binding ProgressLabel}" />
+                        <ProgressBar
+                            ProgressColor="{StaticResource Primary}"
+                            Progress="{Binding Progress}">
+                            <ProgressBar.BackgroundColor>
+                                <OnPlatform x:TypeArguments="Color">
+                                    <On Platform="iOS" Value="{StaticResource OnTertiaryContainer}" />
+                                </OnPlatform>
+                            </ProgressBar.BackgroundColor>
+                        </ProgressBar>
+                        <Label
+                            LineHeight="0"
+                            HorizontalTextAlignment="End"
+                            Style="{StaticResource BodySmLabelStyle}"
+                            TextColor="{StaticResource OnTertiaryContainer}"
+                            Text="¡Sigue así explorador!" />
+                    </VerticalStackLayout>
+                    <Border.Shadow>
+                        <Shadow Brush="{StaticResource OnTertiaryFixedVariant}"
+                                Offset="0,6"
+                                Radius="1"
+                                Opacity="1" />
+                    </Border.Shadow>
+                </Border>
+                <Grid
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="2"
+                    RowSpacing="12"
+                    RowDefinitions="*, *"
+                    ColumnDefinitions="*, *">
+                    <controls:BadgeView
+                        Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge1}"
+                        Title="20 puntos &#x0a;Trofeo del Agua"
+                        Grid.Column="0"
+                        Grid.Row="0" />
+                    <controls:BadgeView
+                        Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge2}"
+                        Title="40 puntos &#x0a;Trofeo del Aire"
+                        Grid.Column="1"
+                        Grid.Row="0" />
+                    <controls:BadgeView
+                        Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge3}"
+                        Title="60 puntos &#x0a;Trofeo del Bosque"
+                        Grid.Column="0"
+                        Grid.Row="1" />
+                    <controls:BadgeView
+                        Image="{Binding Source={RelativeSource AncestorType={x:Type vm:AchievementPageViewModel}}, Path=Badge4}"
+                        Title="100 puntos &#x0a;Trofeo de la Jungla"
+                        Grid.Column="1"
+                        Grid.Row="1" />
+                </Grid>
+
+            </Grid>
+        </ScrollView>
         <Border
             StrokeShape="RoundRectangle 20, 20, 0, 0"
             Grid.Column="0"
-            Grid.ColumnSpan="2"
-            Grid.Row="3"
+            Grid.Row="1"
             Padding="16"
             BackgroundColor="{StaticResource PrimaryContainer}"
             VerticalOptions="End">

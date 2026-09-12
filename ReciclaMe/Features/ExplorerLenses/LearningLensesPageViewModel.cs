@@ -7,6 +7,7 @@ using ReciclaMe.Features.Common;
 using ReciclaMe.Features.Learn;
 using ReciclaMe.Features.Menu;
 using ReciclaMe.Infrastructure;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.ExplorerLenses;
 
@@ -31,7 +32,9 @@ public sealed partial class LearningLensesPageViewModel : BaseViewModel
         ICategoryClassRepository categoryClassRepository,
         IClassificationModelService classificationModelService,
         ICameraProvider cameraProvider,
-        IImageService imageService) : base(navigationService, alertService)
+        IImageService imageService, 
+        IAnalyticsService analyticsService,
+        ICrashReportService crashReportService) : base(navigationService, alertService, analyticsService, crashReportService)
     {
         _cameraProvider = cameraProvider;
         _categoryClassRepository = categoryClassRepository;
@@ -46,14 +49,23 @@ public sealed partial class LearningLensesPageViewModel : BaseViewModel
         IsEnabled = false;
         IsRunning = true;
         var filePath = _imageService.SavePicture(pictureStream);
-        var modelClassification = await _classificationModelService.GetClassificationAsync();
+        var modelClassification = await _classificationModelService.GetClassificationAsync(filePath);
         modelClassification.ImagePath = filePath;
         
         var parameters = new Dictionary<string, object>
         {
             { "ModelClassification", modelClassification }
         };
-        await NavigationService.NavigateAsync(nameof(LearnPageViewModel), parameters);
+
+        if (modelClassification.Accuracy < AppPreferences.Accuracy)
+        {
+            await NavigationService.NavigateAsync(nameof(MysteryObjectPageViewModel), parameters);
+        }
+        else
+        {
+            await NavigationService.NavigateAsync(nameof(LearnPageViewModel), parameters);
+        }
+
         IsEnabled = true;
         IsRunning = false;
     }
@@ -108,5 +120,12 @@ public sealed partial class LearningLensesPageViewModel : BaseViewModel
     protected override async Task Back()
     {
         await NavigationService.NavigateAsync($"///{MainMenuRootPath}");
+    }
+    
+    [RelayCommand]
+    private async Task OpenExplanation()
+    {
+        AnalyticsService.Count(AnalyticsKeys.ExplanationSelection, 1);
+        await NavigationService.NavigateAsync($"{nameof(ExplanationLensesPageViewModel)}");
     }
 }

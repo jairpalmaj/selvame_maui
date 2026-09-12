@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using ReciclaMe.Domain;
 using ReciclaMe.Features.Common;
 using ReciclaMe.Features.ExplorerLenses;
-using ReciclaMe.Features.Menu;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.Alerts;
 
@@ -35,7 +35,9 @@ public sealed partial class FailedExtraPointsPageViewModel : BaseViewModel
     
     public FailedExtraPointsPageViewModel(INavigationService navigationService, 
         IAlertService alertService,
-        IProfileRepository profileRepository) : base(navigationService, alertService)
+        IProfileRepository profileRepository,       
+        IAnalyticsService analyticsService,
+        ICrashReportService crashReportService) : base(navigationService, alertService, analyticsService, crashReportService)
     {
         _profileRepository = profileRepository;
     }

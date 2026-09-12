@@ -5,6 +5,7 @@ using ReciclaMe.Features.Common;
 using ReciclaMe.Features.ExplorerLenses;
 using ReciclaMe.Features.Menu;
 using ReciclaMe.Infrastructure;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.Learn;
 
@@ -40,7 +41,9 @@ public sealed partial class LearnPageViewModel : BaseViewModel
     
     public LearnPageViewModel(INavigationService navigationService,
         IAlertService alertService,
-        IImageService imageService) : base(navigationService, alertService)
+        IImageService imageService, 
+        IAnalyticsService analyticsService,
+        ICrashReportService crashReportService) : base(navigationService, alertService, analyticsService, crashReportService)
     {
         _imageService =  imageService;
     }

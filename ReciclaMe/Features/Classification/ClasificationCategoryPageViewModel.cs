@@ -4,6 +4,7 @@ using ReciclaMe.Domain;
 using ReciclaMe.Features.Alerts;
 using ReciclaMe.Features.Common;
 using ReciclaMe.Features.ExplorerLenses;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.Classification;
 
@@ -22,7 +23,9 @@ public sealed partial class ClassificationCategoryPageViewModel : BaseViewModel
     public ClassificationCategoryPageViewModel(INavigationService navigationService,
         IAlertService alertService,
         IProfileRepository profileRepository,
-        ICategoryClassRepository categoryClassRepository) : base(navigationService, alertService)
+        ICategoryClassRepository categoryClassRepository,
+        IAnalyticsService analyticsService,
+        ICrashReportService crashReportService) : base(navigationService, alertService, analyticsService, crashReportService)
     {
         _categoryClassRepository = categoryClassRepository;
         _profileRepository = profileRepository;
@@ -54,7 +57,7 @@ public sealed partial class ClassificationCategoryPageViewModel : BaseViewModel
             { "ModelClassification", _modelClassification },
             { "SelectedCategory", selectedCategory }
         };
-        
+
         if (_modelClassification.CategoryClass.Category == selectedCategory.Category)
         {
             await _profileRepository.SaveProgressAsync(GamePoints.ExtraPoint);

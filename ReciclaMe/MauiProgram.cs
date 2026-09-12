@@ -11,10 +11,11 @@ public static class MauiProgram
     {
         var builder = MauiApp.CreateBuilder();
         builder
+            .UseMauiApp<App>()
             .UseMauiCommunityToolkitCore()
+            .EnableSentry()
             .UseMauiCommunityToolkit()
             .UseMauiCommunityToolkitCamera()
-            .UseMauiApp<App>()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("Fredoka-Bold.ttf", "FredokaOne");

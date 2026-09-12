@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ReciclaMe.Domain;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.Common;
 
@@ -9,6 +10,9 @@ public partial class BaseViewModel : ObservableObject, IQueryAttributable, IView
     protected readonly INavigationService NavigationService;
     protected readonly IAlertService AlertService;
     protected static UserProfile? Profile;
+    protected readonly IAnalyticsService AnalyticsService;
+    protected readonly ICrashReportService CrashReportService;
+    
     /// <summary>
     /// This is the main root for menu page
     /// shell
@@ -17,10 +21,14 @@ public partial class BaseViewModel : ObservableObject, IQueryAttributable, IView
     
 
     public BaseViewModel(INavigationService navigationService,
-        IAlertService alertService)
+        IAlertService alertService,
+        IAnalyticsService analyticsService,
+        ICrashReportService crashReportService)
     {
         NavigationService = navigationService;
         AlertService = alertService;
+        AnalyticsService = analyticsService;
+        CrashReportService = crashReportService;
     }
 
     [RelayCommand]

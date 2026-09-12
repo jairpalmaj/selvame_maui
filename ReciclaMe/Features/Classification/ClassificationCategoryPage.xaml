@@ -87,7 +87,7 @@
             StrokeShape="RoundRectangle 10"
             BackgroundColor="{StaticResource OnPrimary}">
             <Image 
-                Source="{Binding ImageSource}"/>
+                Source="{Binding ImageSource, Converter={StaticResource ImagePathToSource}}"/>
         </Border>
         <Label 
             LineHeight="1"
@@ -111,14 +111,14 @@
                 IconGlyph="&#xf569;"
                 Title="Cartón"
                 TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
-                TapCommandParameter="1"
+                TapCommandParameter="0"
                 Grid.Column="0"
                 Grid.Row="0"/>
             <controls:CategoryClass 
                 IconGlyph="&#xf6e3;"
                 Title="Vidrio"
                 TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
-                TapCommandParameter="2"
+                TapCommandParameter="4"
                 Grid.Column="1"
                 Grid.Row="0"/>
             
@@ -126,7 +126,7 @@
                 IconGlyph="&#xe8b8;"
                 Title="Metal"
                 TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
-                TapCommandParameter="3"
+                TapCommandParameter="1"
                 Grid.Column="0"
                 Grid.Row="1"/>
             <controls:CategoryClass 
@@ -135,7 +135,7 @@
                 Grid.Column="1"
                 Grid.Row="1"
                 TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
-                TapCommandParameter="4"/>
+                TapCommandParameter="0"/>
             
             <controls:CategoryClass 
                 Grid.Column="0"

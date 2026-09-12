@@ -2,6 +2,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ReciclaMe.Domain;
 using ReciclaMe.Features.Common;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.StartAdventure;
 
@@ -28,7 +29,9 @@ public sealed partial class ChooseCharacterPageViewModel : BaseViewModel
     
     public ChooseCharacterPageViewModel(INavigationService navigationService,
         IAlertService alertService,
-        IProfileRepository profileRepository) : base(navigationService, alertService)
+        IProfileRepository profileRepository, 
+        IAnalyticsService analyticsService,
+        ICrashReportService crashReportService) : base(navigationService, alertService, analyticsService, crashReportService)
     {
         _profileRepository = profileRepository;
     }
@@ -80,6 +83,10 @@ public sealed partial class ChooseCharacterPageViewModel : BaseViewModel
         {
             CharacterId = _characterId,
         };
+        //we track the character selected
+        AnalyticsService.Count(AnalyticsKeys.CharacterSelection, 1, [
+            new KeyValuePair<string, object>("CharacterId", _characterId)
+        ]);
         await _profileRepository.SaveAsync(profile);
         await _profileRepository.SaveCharacterAsync(_characterId);
         app?.NavigateToMenu();

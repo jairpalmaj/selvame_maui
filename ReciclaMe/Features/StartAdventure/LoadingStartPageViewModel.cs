@@ -1,5 +1,6 @@
 using ReciclaMe.Domain;
 using ReciclaMe.Features.Common;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.StartAdventure;
 
@@ -9,7 +10,9 @@ public sealed partial class LoadingStartPageViewModel : BaseViewModel
     
     public LoadingStartPageViewModel(INavigationService navigationService, 
         IAlertService alertService,
-        IProfileRepository profileRepository) : base(navigationService, alertService)
+        IProfileRepository profileRepository,
+        IAnalyticsService analyticsService,
+        ICrashReportService crashReportService) : base(navigationService, alertService, analyticsService, crashReportService)
     {
         _profileRepository =  profileRepository;
     }

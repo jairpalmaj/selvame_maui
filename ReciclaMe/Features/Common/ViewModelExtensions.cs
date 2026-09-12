@@ -31,7 +31,7 @@ public static class ViewModelExtensions
         builder.Services.AddTransientWithShellRoute<LoadingStartPage, LoadingStartPageViewModel>(nameof(LoadingStartPageViewModel));
         builder.Services.AddTransientWithShellRoute<ExtraPointsPage, ExtraPointsPageViewModel>(nameof(ExtraPointsPageViewModel));
         builder.Services.AddTransientWithShellRoute<FailedExtraPointsPage, FailedExtraPointsPageViewModel>(nameof(FailedExtraPointsPageViewModel));
-
+        builder.Services.AddTransientWithShellRoute<ExplanationLensesPage, ExplanationLensesPageViewModel>(nameof(ExplanationLensesPageViewModel));
         return builder;
     }
 }

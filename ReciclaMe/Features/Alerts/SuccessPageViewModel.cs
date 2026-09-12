@@ -4,6 +4,7 @@ using ReciclaMe.Domain;
 using ReciclaMe.Features.Common;
 using ReciclaMe.Features.ExplorerLenses;
 using ReciclaMe.Features.Menu;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.Alerts;
 
@@ -21,7 +22,9 @@ public partial class SuccessPageViewModel : BaseViewModel
     private string _pointsLabel;
     
     public SuccessPageViewModel(INavigationService navigationService,
-        IAlertService alertService) : base(navigationService, alertService)
+        IAlertService alertService,
+        IAnalyticsService analyticsService,
+        ICrashReportService crashReportService) : base(navigationService, alertService, analyticsService, crashReportService)
     {
     }
 

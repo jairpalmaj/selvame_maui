@@ -115,7 +115,7 @@
                     StrokeShape="RoundRectangle 10"
                     BackgroundColor="{StaticResource OnPrimary}">
                     <Image
-                        Source="{Binding ImageSource}" />
+                        Source="{Binding ImageSource, Converter={StaticResource ImagePathToSource}}" />
                 </Border>
             </Grid>
 

@@ -64,13 +64,17 @@
                     HorizontalTextAlignment="Center"
                     TextColor="{StaticResource OnBackground}"
                     Style="{StaticResource BodySmLabelStyle}"
-                    Text="¡Encuentra basura!" />
+                    Text="¿Cómo funciona?" />
                 <Border.Shadow>
                     <Shadow Brush="{StaticResource Background}"
                             Offset="0,4"
                             Radius="8"
                             Opacity="0.56" />
                 </Border.Shadow>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding OpenExplanationCommand}"/>
+                </Border.GestureRecognizers>
             </Border>
             <Border
                 HeightRequest="200"

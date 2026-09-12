@@ -2,10 +2,10 @@ namespace ReciclaMe.Domain;
 
 public enum Category : ushort
 {
-    Cardboard = 1,
-    Glass = 2,
-    Metal = 3,
-    Paper = 4,
+    Paper = 0,
+    Metal = 1,
+    Cardboard = 2,
+    Trash = 3,
+    Glass = 4,
     Plastic = 5,
-    Trash = 6
 }

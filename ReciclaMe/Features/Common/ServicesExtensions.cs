@@ -1,5 +1,6 @@
 using ReciclaMe.Domain;
 using ReciclaMe.Infrastructure;
+using ReciclaMe.Services;
 
 namespace ReciclaMe.Features.Common;
 
@@ -17,6 +18,10 @@ public static class ServicesExtensions
         builder.Services.AddSingleton<IProfileRepository, SqliteProfileRepository>();
         builder.Services.AddSingleton<IClassificationModelService, MockClassificationModelService>();
         builder.Services.AddSingleton<IImageService, ImageService>();
+        
+        //analytics sentry
+        builder.Services.AddSingleton<IAnalyticsService, AnalyticsService>();
+        builder.Services.AddSingleton<ICrashReportService, CrashReportService>();
         return builder;
     }
 }

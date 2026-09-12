@@ -19,9 +19,22 @@
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
-        <ApplicationVersion>2026090401</ApplicationVersion>
+        <ApplicationVersion>2026091201</ApplicationVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">26.0</SupportedOSPlatformVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android' and '$(Configuration)' == 'Release'">
+        <!-- Explicitly include android-arm alongside other required architectures -->
+        <RuntimeIdentifiers>android-arm64</RuntimeIdentifiers>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)' == 'net9.0-ios' Or '$(TargetFramework)' == 'net10.0-ios'">
+        <!-- Forces the linker to skip user/third-party assemblies and only strip SDK frameworks -->
+        <MtouchLink>SdkOnly</MtouchLink>
+
+        <!-- Required if ONNX utilizes Swift bindings internally -->
+        <_EnableSwiftSupport>true</_EnableSwiftSupport>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0-ios|AnyCPU'">
@@ -65,6 +78,12 @@
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.90" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.11" />
+        <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.29.0" />
+        <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.29.0" />
+        <PackageReference Include="SkiaSharp" Version="4.152.0" />
+        <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="4.152.0" />
+
+        <PackageReference Include="Sentry.Maui" Version="6.10.0" />
         <PackageReference Include="sqlite-net-pcl" Version="1.11.285" />
     </ItemGroup>
 
