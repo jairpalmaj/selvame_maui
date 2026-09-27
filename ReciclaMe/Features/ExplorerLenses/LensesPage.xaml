@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+             Shell.NavBarIsVisible="False"
+             xmlns:vm="clr-namespace:ReciclaMe.Features.ExplorerLenses"
+             x:DataType="vm:LensesPageViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:behaviors="clr-namespace:ReciclaMe.Animations"
+             x:Class="ReciclaMe.Features.ExplorerLenses.LensesPage">
+    <AbsoluteLayout
+        SafeAreaEdges="None">
+        <toolkit:CameraView
+            AbsoluteLayout.LayoutBounds="1,1,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            x:Name="Camera" />
+        <Grid
+            Margin="12, 26, 12, 70"
+            AbsoluteLayout.LayoutBounds="1,1,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            RowSpacing="12"
+            RowDefinitions="Auto, *, Auto"
+            ColumnDefinitions="*, *">
+            <Border
+                Grid.Column="0"
+                Grid.Row="0"
+                HorizontalOptions="Start"
+                HeightRequest="46"
+                WidthRequest="46"
+                StrokeShape="RoundRectangle 23"
+                BackgroundColor="{StaticResource Background}">
+                <Label
+                    LineHeight="0"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontFamily="GIcons"
+                    FontSize="26"
+                    TextColor="{StaticResource Error}"
+                    Text="&#xe5cd;" />
+                <Border.Shadow>
+                    <Shadow Brush="{StaticResource Background}"
+                            Offset="0,4"
+                            Radius="8"
+                            Opacity="0.56" />
+                </Border.Shadow>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding BackCommand}" />
+                </Border.GestureRecognizers>
+            </Border>
+            <Border
+                HorizontalOptions="End"
+                Grid.Column="1"
+                Grid.Row="0"
+                StrokeShape="RoundRectangle 23"
+                Stroke="{StaticResource Tertiary}"
+                StrokeThickness="4"
+                BackgroundColor="{StaticResource Background}">
+                <Label
+                    Margin="16, 10"
+                    LineHeight="0"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    TextColor="{StaticResource OnBackground}"
+                    Style="{StaticResource BodySmLabelStyle}"
+                    Text="¡Ayuda!" />
+                <Border.Shadow>
+                    <Shadow Brush="{StaticResource Background}"
+                            Offset="0,4"
+                            Radius="8"
+                            Opacity="0.56" />
+                </Border.Shadow>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding OpenExplanationCommand}"/>
+                </Border.GestureRecognizers>
+            </Border>
+            <Border
+                HeightRequest="200"
+                WidthRequest="200"
+                StrokeShape="RoundRectangle 20"
+                StrokeDashArray="1,1"
+                StrokeThickness="6"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Grid.Row="1"
+                Stroke="{StaticResource Background}">
+                <ActivityIndicator 
+                    IsRunning="{Binding IsRunning}"
+                    BackgroundColor="Transparent"
+                    Color="{StaticResource Background}"/>
+                <Border.Behaviors>
+                    <behaviors:HeartBeatAnimationBehavior />
+                </Border.Behaviors>
+            </Border>
+            <Border
+                IsEnabled="{Binding IsEnabled}"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Grid.Row="2"
+                HeightRequest="100"
+                WidthRequest="100"
+                StrokeThickness="4"
+                BackgroundColor="{StaticResource PlasticYellow}"
+                StrokeShape="RoundRectangle 100"
+                Stroke="{StaticResource Background}">
+                <Border
+                    HeightRequest="80"
+                    WidthRequest="80"
+                    StrokeThickness="4"
+                    Opacity="0.56"
+                    BackgroundColor="{StaticResource PlasticYellow}"
+                    StrokeShape="RoundRectangle 40"
+                    Stroke="{StaticResource Background}" />
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Tapped="OnCapture" />
+                </Border.GestureRecognizers>
+                <Border.Behaviors>
+                    <toolkit:TouchBehavior
+                        x:Key="TouchBehavior"
+                        DefaultAnimationDuration="250"
+                        DefaultAnimationEasing="{x:Static Easing.CubicInOut}"
+                        PressedOpacity="0.6"
+                        PressedScale="0.8" />
+                </Border.Behaviors>
+            </Border>
+        </Grid>
+    </AbsoluteLayout>
+</pages:BasePage>

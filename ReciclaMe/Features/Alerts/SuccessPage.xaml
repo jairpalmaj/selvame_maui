@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+             xmlns:vm="clr-namespace:ReciclaMe.Features.Alerts"
+             x:DataType="vm:SuccessPageViewModel"
+             Shell.NavBarIsVisible="False"
+             x:Class="ReciclaMe.Features.Alerts.SuccessPage">
+    <AbsoluteLayout
+        SafeAreaEdges="None">
+        <Image 
+            Aspect="AspectFill"
+            AbsoluteLayout.LayoutBounds="1,1,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            Opacity="0.56"
+            Source="bg2"/>
+        <Grid
+            AbsoluteLayout.LayoutBounds="1,1,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            RowDefinitions="*, *, *, *, *"
+            ColumnDefinitions="*, *">
+        
+        <Label 
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="0"
+            HorizontalTextAlignment="Center"
+            TextColor="{StaticResource Primary}"
+            Style="{StaticResource HeadlineLgLabelStyle}"
+            Text="¡Increible Hallazgo!"/>
+        <Border
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="1"
+            HeightRequest="180"
+            WidthRequest="180"
+            Stroke="{StaticResource Primary}"
+            StrokeThickness="8"
+            StrokeShape="RoundRectangle 90"
+            BackgroundColor="{StaticResource OnPrimary}">
+            <Image 
+                Source="{Binding ImageSource, Converter={StaticResource ImagePathToSource}}"/>
+        </Border>
+        <Border
+            Rotation="356"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="2"
+            HeightRequest="60"
+            WidthRequest="180"
+            Stroke="{StaticResource Tertiary}"
+            StrokeThickness="4"
+            StrokeShape="RoundRectangle 10"
+            BackgroundColor="{StaticResource SecondaryContainer}">
+            <Label
+                LineHeight="0"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                TextColor="{StaticResource OnPrimaryFixed}"
+                Style="{StaticResource HeadlineSmLabelStyle}"
+                Text="{Binding CategoryName}" />
+            <Border.Shadow>
+                <Shadow Brush="{StaticResource OnTertiaryFixedVariant}"
+                        Offset="0,4"
+                        Radius="1"
+                        Opacity="1" />
+            </Border.Shadow>
+        </Border>
+        <Border
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="3"
+            HeightRequest="46"
+            WidthRequest="260"
+            Stroke="{StaticResource Tertiary}"
+            StrokeThickness="4"
+            StrokeShape="RoundRectangle 23"
+            BackgroundColor="{StaticResource OnPrimary}">
+            <HorizontalStackLayout
+                Spacing="10"
+                HorizontalOptions="Center">
+                <Label
+                    LineHeight="0"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontFamily="GIcons"
+                    FontSize="28"
+                    TextColor="{StaticResource PlasticYellow}"
+                    Text="&#xf31d;" />
+                <Label
+                    LineHeight="0"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    TextColor="{StaticResource Tertiary}"
+                    Style="{StaticResource HeadlineSmLabelStyle}"
+                    Text="{Binding PointsLabel}" />
+            </HorizontalStackLayout>
+            <Border.Shadow>
+                <Shadow Brush="{StaticResource OnTertiaryFixedVariant}"
+                        Offset="0,4"
+                        Radius="1"
+                        Opacity="1" />
+            </Border.Shadow>
+        </Border>
+        <Border
+            Grid.Column="0"
+            Grid.Row="5"
+            HeightRequest="60"
+            WidthRequest="180"
+            Stroke="{StaticResource OnErrorContainerBrush}"
+            StrokeThickness="4"
+            StrokeShape="RoundRectangle 10"
+            BackgroundColor="{StaticResource Error}">
+            <Label
+                LineHeight="0"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                TextColor="{StaticResource OnError}"
+                Style="{StaticResource HeadlineSmLabelStyle}"
+                Text="TERMINAR" />
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer 
+                    Command="{Binding TerminateCommand}" />
+            </Border.GestureRecognizers>
+        </Border>
+        <Border
+            Grid.Column="1"
+            Grid.Row="4"
+            HeightRequest="60"
+            WidthRequest="180"
+            Stroke="{StaticResource Primary}"
+            StrokeThickness="4"
+            StrokeShape="RoundRectangle 10"
+            BackgroundColor="{StaticResource PrimaryContainer}">
+            <Label
+                LineHeight="0"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                TextColor="{StaticResource OnPrimary}"
+                Style="{StaticResource HeadlineSmLabelStyle}"
+                Text="¡CONTINUAR!" />
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer 
+                    Command="{Binding ContinueCommand}"/>
+            </Border.GestureRecognizers>
+        </Border>
+        
+    </Grid>
+    </AbsoluteLayout>
+    
+</pages:BasePage>

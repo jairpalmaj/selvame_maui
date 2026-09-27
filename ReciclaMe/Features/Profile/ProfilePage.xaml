@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+                xmlns:vm="clr-namespace:ReciclaMe.Features.Profile"
+                x:DataType="vm:ProfilePageViewModel"
+                Shell.NavBarIsVisible="False"
+                SafeAreaEdges="None"
+                xmlns:controls="clr-namespace:ReciclaMe.Controls"
+                x:Class="ReciclaMe.Features.Profile.ProfilePage">
+    <Grid
+        SafeAreaEdges="None"
+        ColumnDefinitions="*"
+        RowDefinitions="*, Auto">
+        <ScrollView
+            Grid.Column="0"
+            Grid.Row="0">
+            <Grid
+                RowSpacing="12"
+                Padding="0,50, 0 ,0"
+                RowDefinitions="Auto, Auto, *, Auto"
+                ColumnDefinitions="*, 2*, *">
+                <Label
+                    TextColor="{StaticResource PrimaryContainer}"
+                    Style="{StaticResource HeadlineMdLabelStyle}"
+                    HorizontalTextAlignment="Center"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Grid.Row="0"
+                    Text="Perfil del Explorador" />
+                <controls:CharacterSelection
+                    CharacterImageSource="{Binding Source={RelativeSource AncestorType={x:Type vm:ProfilePageViewModel}}, Path=CharacterImageSource}"
+                    CharacterSkill="{Binding Source={RelativeSource AncestorType={x:Type vm:ProfilePageViewModel}}, Path=CharacterSkillName}"
+                    CharacterGlyph="{Binding Source={RelativeSource AncestorType={x:Type vm:ProfilePageViewModel}}, Path=CharacterSkillIcon}"
+                    CharacterName="{Binding Source={RelativeSource AncestorType={x:Type vm:ProfilePageViewModel}}, Path=CharacterName}"
+                    CharacterGlyphColor="{StaticResource GlassPurple}"
+                    Grid.Column="1"
+                    Grid.Row="1" />
+                <VerticalStackLayout
+                    VerticalOptions="Center"
+                    Spacing="12"
+                    Margin="20"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Grid.Row="2">
+                    <BoxView
+                        HeightRequest="1"
+                        Color="{StaticResource Error}" />
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource BodyMdLabelStyle}"
+                        TextColor="{StaticResource Tertiary}"
+                        Text="Zona Peligrosa" />
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource BodySmLabelStyle}"
+                        TextColor="{StaticResource InverseSurface}"
+                        Text="Configuraciones avanzadas. Pide ayuda a un adulto o si estás seguro de  eliminar tu cuenta presiona el botón." />
+                    <Button
+                        Command="{Binding DeleteCommand}"
+                        BackgroundColor="Transparent"
+                        TextColor="{StaticResource Error}"
+                        BorderColor="{StaticResource Error}"
+                        Text="Eliminar Cuenta">
+                        <Button.ImageSource>
+                            <FontImageSource
+                                Glyph="&#xe92b;"
+                                Color="{StaticResource Error}"
+                                FontFamily="GIcons" />
+                        </Button.ImageSource>
+                    </Button>
+                    
+                    <Button
+                        Style="{StaticResource TertiaryButtonStyle}"
+                        Command="{Binding GoToFeedbackCommand}"
+                        Text="Encuesta de satisfacción" />
+                    
+                    <Button
+                        Style="{StaticResource SecondaryButtonStyle}"
+                        Command="{Binding GoToPrivacyPolicyCommand}"
+                        Text="Política de privacidad" />
+                    
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource BodySmLabelStyle}"
+                        TextColor="{StaticResource Primary}"
+                        Text="{Binding AppVersion}" />
+                </VerticalStackLayout>
+
+            </Grid>
+        </ScrollView>
+        <Border
+            StrokeShape="RoundRectangle 20, 20, 0, 0"
+            Grid.Column="0"
+            Grid.Row="1"
+            Padding="16"
+            BackgroundColor="{StaticResource PrimaryContainer}"
+            VerticalOptions="End">
+            <Grid
+                ColumnSpacing="40"
+                RowDefinitions="*"
+                ColumnDefinitions="*, *, *">
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    LineHeight="0"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontFamily="GIcons"
+                    FontSize="30"
+                    Opacity="0.48"
+                    TextColor="{StaticResource Background}"
+                    Text="&#xe88a;">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding GoToHomeCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    LineHeight="0"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontFamily="GIcons"
+                    FontSize="30"
+                    Opacity="0.48"
+                    TextColor="{StaticResource Background}"
+                    Text="&#xefb6;">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding GoToAchievementsCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    LineHeight="0"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontFamily="GIcons"
+                    FontSize="30"
+                    TextColor="{StaticResource Background}"
+                    Text="&#xe56a;">
+                </Label>
+            </Grid>
+        </Border>
+    </Grid>
+</pages:BasePage>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Border
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="This"
+    BindingContext="{Binding Source={x:Reference This} }"
+    xmlns:data = "clr-namespace:ReciclaMe.Controls"
+    x:DataType="data:RuleContainer"
+    x:Class="ReciclaMe.Controls.RuleContainer"
+    BackgroundColor="{StaticResource BananaYellowDim}"
+    StrokeShape="RoundRectangle 10"
+    Stroke="{StaticResource BananaYellow}"
+    StrokeThickness="2">
+    <VerticalStackLayout
+        Padding="6"
+        VerticalOptions="Center"
+        AbsoluteLayout.LayoutFlags="All"
+        AbsoluteLayout.LayoutBounds="1,1,1,1">
+        <Label
+            LineHeight="1"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+            FontFamily="GIcons"
+            FontSize="28"
+            TextColor="{StaticResource Tertiary}"
+            Text="{Binding Glyph}" />
+        <Label 
+            LineHeight="1"
+            HorizontalTextAlignment="Center"
+            Style="{StaticResource HeadlineSmLabelStyle}"
+            TextColor="{StaticResource Tertiary}"
+            FontSize="14"
+            Text="{Binding Title}" />
+        <Label 
+            TextColor="{StaticResource Tertiary}"
+            LineHeight="1"
+            HorizontalTextAlignment="Center"
+            FontSize="12"
+            Text="{Binding Subtitle}"
+            Style="{StaticResource BodySmLabelStyle}"/>
+    </VerticalStackLayout>
+</Border>

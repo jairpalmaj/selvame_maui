@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+                Shell.NavBarIsVisible="False"
+                xmlns:controls="clr-namespace:ReciclaMe.Controls"
+                xmlns:vm="clr-namespace:ReciclaMe.Features.ExplorerLenses"
+                x:DataType="vm:ExplanationLensesPageViewModel"
+                x:Class="ReciclaMe.Features.ExplorerLenses.ExplanationLensesPage">
+    <Grid
+        Margin="20"
+        RowDefinitions="Auto, *"
+        ColumnDefinitions="*">
+        <Border
+            Grid.Column="0"
+            Grid.Row="0"
+            HorizontalOptions="End"
+            HeightRequest="46"
+            WidthRequest="46"
+            StrokeShape="RoundRectangle 23"
+            BackgroundColor="{StaticResource SecondaryContainer}">
+            <Label
+                LineHeight="0"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                FontFamily="GIcons"
+                FontSize="26"
+                TextColor="{StaticResource OnSecondaryContainer}"
+                Text="&#xe5cd;" />
+            <Border.Shadow>
+                <Shadow Brush="{StaticResource Background}"
+                        Offset="0,4"
+                        Radius="8"
+                        Opacity="0.56" />
+            </Border.Shadow>
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding BackCommand}" />
+            </Border.GestureRecognizers>
+        </Border>
+
+        <ScrollView
+            Grid.Row="1"
+            Grid.Column="0">
+            <Grid
+                ColumnSpacing="8"
+                RowSpacing="10"
+                RowDefinitions="Auto, Auto, Auto, Auto, *, *, *"
+                ColumnDefinitions="*, *">
+
+                <VerticalStackLayout
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="1"
+                    Spacing="8">
+                    <Label
+                        Style="{StaticResource HeadlineMdLabelStyle}"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        Text="¡Cómo usar tu Súper Lente!"
+                        TextColor="{StaticResource WoodDark}" />
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        Style="{StaticResource BodySmLabelStyle}"
+                        TextColor="{StaticResource OnBackground}"
+                        Text="Aprende los trucos mágicos para fotografiar residuos y los 6 tesoros que la selva reconoce." />
+                </VerticalStackLayout>
+                <Border
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="2"
+                    BackgroundColor="{StaticResource InverseOnSurface}"
+                    StrokeShape="RoundRectangle 10"
+                    Stroke="{StaticResource WoodDark}"
+                    StrokeThickness="4">
+
+                    <Grid
+                        VerticalOptions="Center"
+                        Padding="8, 12"
+                        ColumnSpacing="12"
+                        RowSpacing="8"
+                        ColumnDefinitions="*, *, *"
+                        RowDefinitions="Auto, Auto, Auto">
+                        <Grid
+                            ColumnSpacing="12"
+                            ColumnDefinitions="Auto, *"
+                            RowDefinitions="*"
+                            HorizontalOptions="Center"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            Grid.Row="0">
+                            <Image
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HeightRequest="80"
+                                Source="{Binding CharacterImageSource}" />
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                LineBreakMode="WordWrap">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span
+                                            Style="{StaticResource HeadlineSmLabelStyle}"
+                                            Text="{Binding Advice}"
+                                            TextColor="{StaticResource Tertiary}"
+                                            FontSize="18" />
+
+                                        <Span
+                                            Style="{StaticResource BodyMdLabelStyle}"
+                                            Text="3 Reglas de Oro para tomar tu foto."
+                                            TextColor="{StaticResource Tertiary}"
+                                            FontSize="16" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <!--
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                LineHeight="1"
+                                VerticalTextAlignment="Center"
+                                FontSize="18"
+                                TextColor="{StaticResource Tertiary}"
+                                Style="{StaticResource HeadlineSmLabelStyle}"
+                                Text="{Binding Advice}" />
+                            -->
+                        </Grid>
+
+                        <controls:RuleContainer
+                            Grid.Column="0"
+                            Grid.Row="1"
+                            Glyph="&#xe430;"
+                            Title="¡Mucha Luz!"
+                            Subtitle="Evita sombras"
+                            BackgroundColor="{StaticResource BananaYellowDim}"
+                            Stroke="{StaticResource BananaYellow}" />
+
+                        <controls:RuleContainer
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            Glyph="&#xead5;"
+                            Title="Un Solo Tesoro"
+                            Subtitle="Enfoca al centro"
+                            BackgroundColor="{StaticResource Turquesa}"
+                            Stroke="{StaticResource Menta}" />
+
+                        <controls:RuleContainer
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            Glyph="&#xf0ff;"
+                            Title="Lugar limpio"
+                            Subtitle="Quita cosas alrededor"
+                            BackgroundColor="{StaticResource PaperBlueDim}"
+                            Stroke="{StaticResource PaperBlue}" />
+
+                        <Border
+                            StrokeShape="RoundRectangle 10"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            Grid.Row="2">
+                            <Grid
+                                Padding="10"
+                                ColumnSpacing="8"
+                                BackgroundColor="{StaticResource SurfaceVariant}"
+                                ColumnDefinitions="Auto, *"
+                                RowDefinitions="*">
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    LineHeight="1"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center"
+                                    FontFamily="GIcons"
+                                    FontSize="28"
+                                    TextColor="{StaticResource Tertiary}"
+                                    Text="&#xe81a;" />
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    LineHeight="1"
+                                    VerticalTextAlignment="Center"
+                                    TextColor="{StaticResource OnSurfaceVariant}"
+                                    Text="¡Ojo de explorador! Si la foto sale borrosa o con muchos objetos alrededor, el Lente Mágico no sabrá qué es." />
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+                    <Border.Shadow>
+                        <Shadow Brush="{StaticResource WoodDark}"
+                                Offset="0,4"
+                                Radius="1"
+                                Opacity="1" />
+                    </Border.Shadow>
+                </Border>
+                <Label
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="3"
+                    HorizontalTextAlignment="Center"
+                    TextColor="{StaticResource WoodDark}"
+                    Style="{StaticResource HeadlineSmLabelStyle}"
+                    Text="Los 6 Tipos de Residuos" />
+                <controls:CategoryContainer
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    ImageSource="plastic"
+                    Title="Plástico"
+                    Description="Botellas de agua, envases de yogurt y contenedores pequeños." />
+                <controls:CategoryContainer
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    ImageSource="paper"
+                    Title="Papel"
+                    Description="Hojas secas, dibujos viejos, revistas y cuadernos." />
+                <controls:CategoryContainer
+                    Grid.Column="0"
+                    Grid.Row="5"
+                    ImageSource="cardboard"
+                    Title="Cartón"
+                    Description="Cajas de cereal, empaques y tubos de papel." />
+                <controls:CategoryContainer
+                    Grid.Column="1"
+                    Grid.Row="5"
+                    ImageSource="glass25"
+                    Title="Vidrio"
+                    Description="Frascos, vasos y botellas. ¡Con cuidado!" />
+                <controls:CategoryContainer
+                    Grid.Column="0"
+                    Grid.Row="6"
+                    ImageSource="metal"
+                    Title="Metal"
+                    Description="Latas de jugo o refresco y tapas metálicas." />
+                <controls:CategoryContainer
+                    Grid.Column="1"
+                    Grid.Row="6"
+                    ImageSource="trash"
+                    Title="Basura General"
+                    Description="Envolturas de dulces, papitas y servilletas sucias." />
+            </Grid>
+        </ScrollView>
+
+    </Grid>
+
+
+</pages:BasePage>

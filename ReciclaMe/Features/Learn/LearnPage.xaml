@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+                Shell.NavBarIsVisible="False"
+                xmlns:vm="clr-namespace:ReciclaMe.Features.Learn"
+                x:DataType="vm:LearnPageViewModel"
+                x:Class="ReciclaMe.Features.Learn.LearnPage">
+    <AbsoluteLayout
+        SafeAreaEdges="None">
+        <Image 
+            Aspect="AspectFill"
+            AbsoluteLayout.LayoutBounds="1,1,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            Opacity="0.46"
+            Source="bg2"/>
+        <Grid
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1,1,1,1"
+            RowDefinitions="*, Auto"
+            ColumnDefinitions="*">
+        <ScrollView
+            Margin="20"
+            Grid.Row="0"
+            Grid.Column="0">
+            <Grid
+                RowSpacing="8"
+                ColumnDefinitions="*"
+                RowDefinitions="Auto, *">
+                <Border
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    StrokeShape="RoundRectangle 20"
+                    Stroke="{StaticResource Tertiary}"
+                    StrokeThickness="8"
+                    BackgroundColor="{StaticResource InverseOnSurface}">
+                    <Grid
+                        RowDefinitions="Auto, Auto, Auto"
+                        ColumnDefinitions="*">
+                        <Label
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            HorizontalTextAlignment="Center"
+                            TextColor="{StaticResource Tertiary}"
+                            Style="{StaticResource HeadlineLgLabelStyle}"
+                            Text="{Binding Title}" />
+                        <Border
+                            Grid.Column="0"
+                            Grid.Row="1"
+                            Margin="20"
+                            HeightRequest="180"
+                            BackgroundColor="{StaticResource OnPrimary}"
+                            StrokeShape="RoundRectangle 10"
+                            Stroke="{StaticResource Tertiary}"
+                            StrokeThickness="4">
+                            <Image
+                                Aspect="AspectFit"
+                                Source="{Binding ImageSource, Converter={StaticResource ImagePathToSource}}" />
+                        </Border>
+                        <Border
+                            Grid.Column="0"
+                            Grid.Row="2"
+                            Margin="20"
+                            HeightRequest="180"
+                            BackgroundColor="{StaticResource Background}"
+                            StrokeShape="RoundRectangle 10"
+                            Stroke="{StaticResource Gray}"
+                            StrokeThickness="4">
+                            <VerticalStackLayout
+                                VerticalOptions="Center"
+                                Spacing="8"
+                                HorizontalOptions="Center">
+                                <Label
+                                    LineHeight="0"
+                                    Style="{StaticResource HeadlineSmLabelStyle}"
+                                    TextColor="{StaticResource Gray}"
+                                    Text="{Binding RecyclableLabel}">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding IsRecyclable}"
+                                                     Value="True">
+                                            <Setter Property="TextColor" Value="{StaticResource Gray}" />
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding IsRecyclable}"
+                                                     Value="False">
+                                            <Setter Property="TextColor" Value="{StaticResource Orange}" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <Image
+                                    HeightRequest="100"
+                                    Source="{Binding RecyclableImage}" />
+                                <Label
+                                    LineHeight="0"
+                                    HorizontalTextAlignment="Center"
+                                    Style="{StaticResource BodySmLabelStyle}"
+                                    TextColor="{StaticResource Gray}"
+                                    Text="INORGÁNICO">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding IsRecyclable}"
+                                                     Value="True">
+                                            <Setter Property="TextColor" Value="{StaticResource Gray}" />
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding IsRecyclable}"
+                                                     Value="False">
+                                            <Setter Property="TextColor" Value="{StaticResource Orange}" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </VerticalStackLayout>
+                            <Border.Shadow>
+                                <Shadow Brush="{StaticResource Gray}"
+                                        Offset="2,4"
+                                        Radius="1"
+                                        Opacity="1" />
+                            </Border.Shadow>
+
+                            <Border.Triggers>
+                                <DataTrigger TargetType="Border"
+                                             Binding="{Binding IsRecyclable}"
+                                             Value="True">
+                                    <Setter Property="Stroke" Value="{StaticResource Gray}" />
+                                    <Setter Property="Shadow">
+                                        <Setter.Value>
+                                            <Shadow Brush="{StaticResource Gray}"
+                                                    Offset="0,8"
+                                                    Radius="1"
+                                                    Opacity="1" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger TargetType="Border"
+                                             Binding="{Binding IsRecyclable}"
+                                             Value="False">
+                                    <Setter Property="Stroke" Value="{StaticResource Orange}" />
+                                    <Setter Property="Shadow">
+                                        <Setter.Value>
+                                            <Shadow Brush="{StaticResource Orange}"
+                                                    Offset="0,8"
+                                                    Radius="1"
+                                                    Opacity="1" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Border.Triggers>
+                        </Border>
+                    </Grid>
+                    <Border.Shadow>
+                        <Shadow Brush="{StaticResource TertiaryContainer}"
+                                Offset="4,4"
+                                Radius="8"
+                                Opacity="0.56" />
+                    </Border.Shadow>
+                </Border>
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Grid.Column="0">
+                    <Label
+                        TextColor="{StaticResource OnBackground}"
+                        Style="{StaticResource BodyMdLabelStyle}"
+                        Text="{Binding RecyclableSummary}" />
+                    <Label
+                        TextColor="{StaticResource OnBackground}"
+                        Style="{StaticResource BodyMdLabelStyle}"
+                        Text="{Binding CategoryInformation}" />
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+        <VerticalStackLayout
+            Margin="20, 0, 20, 10"
+            VerticalOptions="End"
+            Spacing="12"
+            Grid.Row="1"
+            Grid.Column="0">
+            <Button
+                Command="{Binding UnderstoodCommand}"
+                Text="¡Entendido!">
+                <Button.ImageSource>
+                    <FontImageSource
+                        Size="24"
+                        Color="{StaticResource OnPrimary}"
+                        Glyph="&#xe86c;"
+                        FontFamily="GIcons" />
+                </Button.ImageSource>
+            </Button>
+            <Button
+                Style="{StaticResource TertiaryButtonStyle}"
+                Command="{Binding ContinueCommand}"
+                Text="Continuar explorando">
+                <Button.ImageSource>
+                    <FontImageSource
+                        Size="24"
+                        Color="{StaticResource OnTertiaryContainer}"
+                        Glyph="&#xe2db;"
+                        FontFamily="GIcons" />
+                </Button.ImageSource>
+            </Button>
+        </VerticalStackLayout>
+    </Grid>
+    </AbsoluteLayout>
+</pages:BasePage>

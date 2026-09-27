@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:vm="clr-namespace:ReciclaMe.Features.StartAdventure"
+       xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+       x:DataType="vm:LoadingStartPageViewModel"
+       Shell.NavBarIsVisible="False"
+       x:Class="ReciclaMe.Features.StartAdventure.LoadingStartPage">
+    <AbsoluteLayout
+        SafeAreaEdges="None">
+        <Image
+            Aspect="AspectFill"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1,1,1,1"
+            Source="splash_img"/>
+        <VerticalStackLayout
+            VerticalOptions="Center"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1,1,1,1"
+            Spacing="20">
+            <Label 
+                HorizontalTextAlignment="Center"
+                TextColor="{StaticResource Tertiary}"
+                Style="{StaticResource HeadlineMdLabelStyle}"
+                Text="Cargando..." />
+            <ActivityIndicator 
+                IsRunning="True"
+                Color="{StaticResource PrimaryFixedDim}"/>
+        </VerticalStackLayout>
+    </AbsoluteLayout>
+    
+</pages:BasePage>

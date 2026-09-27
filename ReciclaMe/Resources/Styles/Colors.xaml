@@ -5,40 +5,91 @@
 
     <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
 
-    <Color x:Key="Primary">#512BD4</Color>
-    <Color x:Key="PrimaryDark">#ac99ea</Color>
-    <Color x:Key="PrimaryDarkText">#242424</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
-    <Color x:Key="SecondaryDarkText">#9880e5</Color>
-    <Color x:Key="Tertiary">#2B0B98</Color>
+    <!-- Primary -->
+    <Color x:Key="Primary">#22600a</Color>
+    <Color x:Key="OnPrimary">#ffffff</Color>
+    <Color x:Key="PrimaryContainer">#3b7a24</Color>
+    <Color x:Key="OnPrimaryContainer">#c3ffa6</Color>
+    <Color x:Key="InversePrimary">#93d876</Color>
+    <Color x:Key="PrimaryFixed">#aef58f</Color>
+    <Color x:Key="PrimaryFixedDim">#93d876</Color>
+    <Color x:Key="OnPrimaryFixed">#052100</Color>
+    <Color x:Key="OnPrimaryFixedVariant">#165200</Color>
 
-    <Color x:Key="White">White</Color>
-    <Color x:Key="Black">Black</Color>
-    <Color x:Key="Magenta">#D600AA</Color>
-    <Color x:Key="MidnightBlue">#190649</Color>
-    <Color x:Key="OffBlack">#1f1f1f</Color>
+    <!-- Secondary -->
+    <Color x:Key="Secondary">#785a00</Color>
+    <Color x:Key="OnSecondary">#ffffff</Color>
+    <Color x:Key="SecondaryContainer">#fec733</Color>
+    <Color x:Key="OnSecondaryContainer">#705400</Color>
+    <Color x:Key="SecondaryFixed">#ffdf9a</Color>
+    <Color x:Key="SecondaryFixedDim">#f5bf2a</Color>
+    <Color x:Key="OnSecondaryFixed">#251a00</Color>
+    <Color x:Key="OnSecondaryFixedVariant">#5a4300</Color>
 
-    <Color x:Key="Gray100">#E1E1E1</Color>
-    <Color x:Key="Gray200">#C8C8C8</Color>
-    <Color x:Key="Gray300">#ACACAC</Color>
-    <Color x:Key="Gray400">#919191</Color>
-    <Color x:Key="Gray500">#6E6E6E</Color>
-    <Color x:Key="Gray600">#404040</Color>
-    <Color x:Key="Gray900">#212121</Color>
-    <Color x:Key="Gray950">#141414</Color>
+    <!-- Tertiary -->
+    <Color x:Key="Tertiary">#6e4d31</Color>
+    <Color x:Key="OnTertiary">#ffffff</Color>
+    <Color x:Key="TertiaryContainer">#896547</Color>
+    <Color x:Key="OnTertiaryContainer">#ffecdf</Color>
+    <Color x:Key="TertiaryFixed">#ffdcc2</Color>
+    <Color x:Key="TertiaryFixedDim">#ebbe9a</Color>
+    <Color x:Key="OnTertiaryFixed">#2d1601</Color>
+    <Color x:Key="OnTertiaryFixedVariant">#5f4025</Color>
 
-    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
-    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
-    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
-    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
-    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
+    <!-- Error -->
+    <Color x:Key="Error">#ba1a1a</Color>
+    <Color x:Key="OnError">#ffffff</Color>
+    <Color x:Key="ErrorContainer">#ffdad6</Color>
+    <Color x:Key="OnErrorContainer">#93000a</Color>
 
-    <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
-    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
-    <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
-    <SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}"/>
-    <SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}"/>
-    <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
-    <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
-    <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+    <!-- Background & Surface -->
+    <Color x:Key="Background">#fff8ef</Color>
+    <Color x:Key="OnBackground">#201b0c</Color>
+    <Color x:Key="Surface">#fff8ef</Color>
+    <Color x:Key="SurfaceDim">#e3d9c1</Color>
+    <Color x:Key="SurfaceBright">#fff8ef</Color>
+    <Color x:Key="SurfaceContainerLowest">#ffffff</Color>
+    <Color x:Key="SurfaceContainerLow">#fdf3da</Color>
+    <Color x:Key="SurfaceContainer">#f7edd4</Color>
+    <Color x:Key="SurfaceContainerHigh">#f1e8cf</Color>
+    <Color x:Key="SurfaceContainerHighest">#ece2c9</Color>
+    <Color x:Key="OnSurface">#201b0c</Color>
+    <Color x:Key="OnSurfaceVariant">#41493c</Color>
+    <Color x:Key="SurfaceVariant">#ece2c9</Color>
+    <Color x:Key="InverseSurface">#35301f</Color>
+    <Color x:Key="InverseOnSurface">#faf0d7</Color>
+    <Color x:Key="SurfaceTint">#2d6c16</Color>
+
+    <!-- Outline -->
+    <Color x:Key="Outline">#717a6a</Color>
+    <Color x:Key="OutlineVariant">#c1c9b8</Color>
+
+    <!-- Custom / Brand Theme Colors -->
+    <Color x:Key="DeepSoil">#2D2318</Color>
+    <Color x:Key="Moss">#A4B494</Color>
+    <Color x:Key="PoisonDartRed">#D64933</Color>
+    <Color x:Key="PaperBlue">#3A86FF</Color>
+    <Color x:Key="PaperBlueDim">#F1F9FD</Color>
+    <Color x:Key="PlasticYellow">#FFBE0B</Color>
+    <Color x:Key="GlassPurple">#8338EC</Color>
+    <Color x:Key="OrganicBrown">#6F4E37</Color>
+    <Color x:Key="PureWhite">#FFFFFF</Color>
+    <Color x:Key="Gray">Gray</Color>
+    <Color x:Key="Orange">#f9943b</Color>
+    
+    <Color x:Key="JungleGreen">#3B7A24</Color>
+    <Color x:Key="JungleGreenDark">#1E4211</Color>
+    <Color x:Key="SandBg">#FFF8EF</Color>
+    <Color x:Key="WoodDark">#4A3320</Color>
+    <Color x:Key="WoodBark">#7E5B3E</Color>
+    <Color x:Key="SoilDark">#2D2318</Color>
+    <Color x:Key="BananaYellow">#F9C22E</Color>
+    <Color x:Key="BananaYellowDim">#FFFBEC</Color>
+    <Color x:Key="LeafAccent">#5BA832</Color>
+    <Color x:Key="MetalGray">#E2E8F0</Color>
+    <Color x:Key="CartonOrange">#D97706</Color>
+    <Color x:Key="TrashBrown">#78350F</Color>
+    <Color x:Key="Menta">#00C48C</Color>
+    <Color x:Key="Turquesa">#ECFDF5</Color>
+
 </ResourceDictionary>
