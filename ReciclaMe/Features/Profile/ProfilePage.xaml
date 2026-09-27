@@ -70,10 +70,17 @@
                                 FontFamily="GIcons" />
                         </Button.ImageSource>
                     </Button>
+                    
+                    <Button
+                        Style="{StaticResource TertiaryButtonStyle}"
+                        Command="{Binding GoToFeedbackCommand}"
+                        Text="Encuesta de satisfacción" />
+                    
                     <Button
                         Style="{StaticResource SecondaryButtonStyle}"
                         Command="{Binding GoToPrivacyPolicyCommand}"
                         Text="Política de privacidad" />
+                    
                     <Label
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource BodySmLabelStyle}"

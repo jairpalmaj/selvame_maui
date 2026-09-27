@@ -41,8 +41,8 @@ public sealed partial class ExtraPointsPageViewModel : BaseViewModel
             _modelClassification = (ModelClassification) modelClassification;
             ImageSource =  _modelClassification.ImagePath;
             CategoryName = $"¡Es {_modelClassification.CategoryClass.Title}!";
-            PointsLabel = $"{GamePoints.Success + GamePoints.ExtraPoint}+ Puntos de Selva";
-            PointsInformation = $"Has ganado {GamePoints.ExtraPoint}+ Puntos de Selva extra al identificar correctamente el residuo";
+            PointsLabel = $"{GamePoints.Success}+ Puntos de Selva";
+            PointsInformation = $"Has ganado {GamePoints.ExtraPoint}+ Punto(s) de Selva extra al identificar correctamente el residuo.";
         }
     }
     

@@ -19,14 +19,14 @@
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
-        <ApplicationVersion>2026091201</ApplicationVersion>
+        <ApplicationVersion>2026091602</ApplicationVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">26.0</SupportedOSPlatformVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android' and '$(Configuration)' == 'Release'">
         <!-- Explicitly include android-arm alongside other required architectures -->
-        <RuntimeIdentifiers>android-arm64</RuntimeIdentifiers>
+        <RuntimeIdentifiers>android-arm;android-arm64;android-x86;android-x64</RuntimeIdentifiers>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(TargetFramework)' == 'net9.0-ios' Or '$(TargetFramework)' == 'net10.0-ios'">

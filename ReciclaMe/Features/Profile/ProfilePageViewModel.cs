@@ -79,4 +79,12 @@ public sealed partial class ProfilePageViewModel : BaseViewModel
         const string url = "https://jairpalma.com.mx/politica-de-privacidad-de-selvame/";
         await Launcher.Default.OpenAsync(url);
     }
+    
+    [RelayCommand]
+    private async Task GoToFeedback()
+    {
+        AnalyticsService.Count(AnalyticsKeys.PrivacyPolicySelection, 1);
+        const string url = "https://forms.gle/DNgraXCGKnEE3T13A";
+        await Launcher.Default.OpenAsync(url);
+    }
 }

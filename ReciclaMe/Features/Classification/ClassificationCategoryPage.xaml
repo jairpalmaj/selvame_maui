@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
-             Shell.NavBarIsVisible="False"
-             xmlns:controls="clr-namespace:ReciclaMe.Controls"
-             xmlns:vm="clr-namespace:ReciclaMe.Features.Classification"
-             x:DataType="vm:ClassificationCategoryPageViewModel"
-             x:Name="This"
-             x:Class="ReciclaMe.Features.Classification.ClassificationCategoryPage">
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:pages="clr-namespace:ReciclaMe.Features.Common"
+                Shell.NavBarIsVisible="False"
+                xmlns:controls="clr-namespace:ReciclaMe.Controls"
+                xmlns:vm="clr-namespace:ReciclaMe.Features.Classification"
+                x:DataType="vm:ClassificationCategoryPageViewModel"
+                x:Name="This"
+                x:Class="ReciclaMe.Features.Classification.ClassificationCategoryPage">
     <Grid
-        Padding="12, 0"
+        Margin="8, 20"
         RowSpacing="12"
-        ColumnSpacing="12"
-        RowDefinitions="Auto, Auto, Auto, Auto, 300"
-        ColumnDefinitions="Auto, *">
+        RowDefinitions="Auto, *"
+        ColumnDefinitions="*, *">
         <Border
             HorizontalOptions="End"
             Grid.Column="1"
@@ -38,112 +37,125 @@
                         Opacity="0.56" />
             </Border.Shadow>
             <Border.GestureRecognizers>
-                <TapGestureRecognizer 
+                <TapGestureRecognizer
                     Command="{Binding BackCommand}" />
             </Border.GestureRecognizers>
         </Border>
-        <Border
+        <ScrollView
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Grid.Row="1"
-            StrokeShape="RoundRectangle 10"
-            Margin="10"
-            Padding="10"
-            StrokeThickness="2"
-            Stroke="{StaticResource TertiaryFixedDim}"
-            BackgroundColor="{StaticResource SurfaceContainer}">
+            Grid.Row="1">
             <Grid
-                RowDefinitions="*"
+                Padding="8"
+                RowSpacing="16"
                 ColumnSpacing="8"
-                ColumnDefinitions="Auto,*, Auto">
-                <Image 
-                    HeightRequest="60"
+                RowDefinitions="*, *, *, 300"
+                ColumnDefinitions="Auto, *">
+                <Border
                     Grid.Column="0"
+                    Grid.ColumnSpan="2"
                     Grid.Row="0"
-                    Source="{Binding CharacterImageSource}"/>
+                    StrokeShape="RoundRectangle 10"
+                    Margin="10"
+                    Padding="10"
+                    StrokeThickness="2"
+                    Stroke="{StaticResource TertiaryFixedDim}"
+                    BackgroundColor="{StaticResource SurfaceContainer}">
+                    <Grid
+                        RowDefinitions="*"
+                        ColumnSpacing="8"
+                        ColumnDefinitions="Auto,*, Auto">
+                        <Image
+                            HeightRequest="80"
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            Source="{Binding CharacterImageSource}" />
+                        <Label
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            VerticalTextAlignment="Center"
+                            LineHeight="1"
+                            Style="{StaticResource BodySmLabelStyle}"
+                            TextColor="{StaticResource OnSurface}"
+                            Text="¡Has identificado un residuo Inorgánico Reciclable!" />
+                        <Image
+                            HeightRequest="60"
+                            Grid.Column="2"
+                            Grid.Row="0"
+                            Source="trash_gray" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="1"
+                    HeightRequest="160"
+                    WidthRequest="160"
+                    Stroke="{StaticResource SecondaryContainer}"
+                    StrokeThickness="4"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="{StaticResource OnPrimary}">
+                    <Image
+                        Source="{Binding ImageSource, Converter={StaticResource ImagePathToSource}}" />
+                </Border>
                 <Label
-                    Grid.Column="1"
-                    Grid.Row="0"
-                    VerticalTextAlignment="Center"
                     LineHeight="1"
-                    Style="{StaticResource BodySmLabelStyle}"
-                    TextColor="{StaticResource OnSurface}"
-                    Text="¡Has identificado un residuo Inorgánico Reciclable!" />
-                <Image 
-                    HeightRequest="60"
-                    Grid.Column="2"
-                    Grid.Row="0"
-                    Source="trash_gray"/>
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="2"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource HeadlineSmLabelStyle}"
+                    TextColor="{StaticResource Tertiary}"
+                    Text="Para ganar puntos extra, ¿Puedes indicar de que está hecho?" />
+                <Grid
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="3"
+                    RowSpacing="20"
+                    ColumnSpacing="20"
+                    RowDefinitions="*, *, *"
+                    ColumnDefinitions="*, *">
+                    <controls:CategoryClass
+                        IconGlyph="&#xf569;"
+                        Title="Cartón"
+                        TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
+                        TapCommandParameter="2"
+                        Grid.Column="0"
+                        Grid.Row="0" />
+                    <controls:CategoryClass
+                        IconGlyph="&#xf6e3;"
+                        Title="Vidrio"
+                        TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
+                        TapCommandParameter="4"
+                        Grid.Column="1"
+                        Grid.Row="0" />
+
+                    <controls:CategoryClass
+                        IconGlyph="&#xe8b8;"
+                        Title="Metal"
+                        TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
+                        TapCommandParameter="1"
+                        Grid.Column="0"
+                        Grid.Row="1" />
+                    <controls:CategoryClass
+                        IconGlyph="&#xe873;"
+                        Title="Papel"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
+                        TapCommandParameter="0" />
+
+                    <controls:CategoryClass
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        IconGlyph="&#xf69e;"
+                        Title="Plástico"
+                        TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
+                        TapCommandParameter="5" />
+                </Grid>
             </Grid>
-        </Border>
-        <Border
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
-            Grid.Row="2"
-            HeightRequest="160"
-            WidthRequest="160"
-            Stroke="{StaticResource SecondaryContainer}"
-            StrokeThickness="4"
-            StrokeShape="RoundRectangle 10"
-            BackgroundColor="{StaticResource OnPrimary}">
-            <Image 
-                Source="{Binding ImageSource, Converter={StaticResource ImagePathToSource}}"/>
-        </Border>
-        <Label 
-            LineHeight="1"
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
-            Grid.Row="3"
-            VerticalTextAlignment="Center"
-            HorizontalTextAlignment="Center"
-            Style="{StaticResource HeadlineSmLabelStyle}"
-            TextColor="{StaticResource Tertiary}"
-            Text="Para ganar puntos extra, ¿Puedes indicar de que está hecho?" />
-        <Grid
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
-            Grid.Row="4"
-            RowSpacing="16"
-            ColumnSpacing="20"
-            RowDefinitions="*, *, *"
-            ColumnDefinitions="*, *">
-            <controls:CategoryClass 
-                IconGlyph="&#xf569;"
-                Title="Cartón"
-                TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
-                TapCommandParameter="0"
-                Grid.Column="0"
-                Grid.Row="0"/>
-            <controls:CategoryClass 
-                IconGlyph="&#xf6e3;"
-                Title="Vidrio"
-                TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
-                TapCommandParameter="4"
-                Grid.Column="1"
-                Grid.Row="0"/>
-            
-            <controls:CategoryClass 
-                IconGlyph="&#xe8b8;"
-                Title="Metal"
-                TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
-                TapCommandParameter="1"
-                Grid.Column="0"
-                Grid.Row="1"/>
-            <controls:CategoryClass 
-                IconGlyph="&#xe873;"
-                Title="Papel"
-                Grid.Column="1"
-                Grid.Row="1"
-                TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
-                TapCommandParameter="0"/>
-            
-            <controls:CategoryClass 
-                Grid.Column="0"
-                Grid.Row="2"
-                IconGlyph="&#xf69e;"
-                Title="Plástico"
-                TapCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:ClassificationCategoryPageViewModel}}, Path=ValidateCommand}"
-                TapCommandParameter="5"/>
-        </Grid>
+        </ScrollView>
+
     </Grid>
 </pages:BasePage>
